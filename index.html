@@ -15,10 +15,10 @@
             </div>
             <span>
         <ul>
-            <li><a href="#about">Home</a></li>
-            <li><a href="#photos">Register</a></li>
-            <li><a href="#playlist">Login</a></li>
-            <li><a href="#like">About</a></li>
+            <li><a href="#" onclick="ShowPage('home')">Home</a></li>
+            <li><a href="#" onclick="ShowPage('register')">Register</a></li>
+            <li><a href="#" onclick="ShowPage('login')">Login</a></li>
+            <li><a href="#" onclick="ShowPage('about')">About</a></li>
         </ul>
              </span>
         </div>
@@ -29,7 +29,14 @@
         <br/>
         <br/>
         <br/>
-        <span>
+        <div id="game_page1">
+
+
+
+
+
+        </div>
+        <div id="game_page2">
             <div>
                 SCORE:
                 <input id="lblScore" type="text"/>
@@ -41,8 +48,16 @@
             <div>
                 <canvas id="canvas" style="position:relative; left: 60%" height="600" width="600"></canvas>
             </div>
-        </span>
+        </div>
+        <div id="game_page3">
 
+
+
+
+
+
+
+        </div>
     </div>
 
     <footer class="footer">
