@@ -14,7 +14,7 @@
     text-transform: uppercase;
 }
 
-ul {
+#Navbar ul {
     list-style-type: none;
     background-color: orangered;
     margin: 0;
@@ -23,11 +23,11 @@ ul {
     height: 50px;
 }
 
-li {
+#Navbar li {
     float: left;
 }
 
-li a {
+#Navbar li a {
     display: block;
     color: white;
     text-align: center;
@@ -35,7 +35,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+#Navbar li a:hover {
     background-color: deepskyblue;
 }
 
@@ -52,7 +52,7 @@ li a:hover {
 }
 
 
-.content{
+#content{
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -60,109 +60,120 @@ li a:hover {
     margin-left: auto;
 }
 
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+
+#myFooter {
+    background: -webkit-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+    background: -o-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+    background: -moz-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+    background: linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: white;
+    padding-top: 30px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.col {
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
+#myFooter .footer-copyright {
+    background-color: #333333;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
 }
 
+#myFooter .row {
+    margin-bottom: 60px;
+}
 
-@media (min-width: 992px) {
-    .col-lg {
-        -ms-flex-preferred-size: 0;
-        flex-basis: 0;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        max-width: 100%;
-    }
+#myFooter .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
 
-    .col-lg-auto {
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-        width: auto;
-        max-width: 100%;
-    }
+#myFooter .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
 
-    .col-lg-1 {
-        -ms-flex: 0 0 8.333333%;
-        flex: 0 0 8.333333%;
-        max-width: 8.333333%;
-    }
+#myFooter ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
 
-    .col-lg-2 {
-        -ms-flex: 0 0 16.666667%;
-        flex: 0 0 16.666667%;
-        max-width: 16.666667%;
-    }
+#myFooter h5 {
+    font-size: 18px;
+    color: gray;
+    font-weight: bold;
+    margin-top: 30px;
+}
 
-    .col-lg-3 {
-        -ms-flex: 0 0 25%;
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
+#myFooter h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
 
-    .col-lg-4 {
-        -ms-flex: 0 0 33.333333%;
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-    }
+#myFooter a {
+    color: white;
+    text-decoration: none;
+}
 
-    .col-lg-5 {
-        -ms-flex: 0 0 41.666667%;
-        flex: 0 0 41.666667%;
-        max-width: 41.666667%;
-    }
+#myFooter a:hover,
+#myFooter a:focus {
+    text-decoration: none;
+    color: white;
+}
 
-    .col-lg-6 {
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+#myFooter .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 16px;
+}
 
-    .col-lg-7 {
-        -ms-flex: 0 0 58.333333%;
-        flex: 0 0 58.333333%;
-        max-width: 58.333333%;
-    }
+#myFooter .social-networks a {
+    font-size: 32px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
 
-    .col-lg-8 {
-        -ms-flex: 0 0 66.666667%;
-        flex: 0 0 66.666667%;
-        max-width: 66.666667%;
-    }
+#myFooter .social-networks a:hover {
+    text-decoration: none;
+}
 
-    .col-lg-9 {
-        -ms-flex: 0 0 75%;
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
+#myFooter .facebook:hover {
+    color: #0077e2;
+}
 
-    .col-lg-10 {
-        -ms-flex: 0 0 83.333333%;
-        flex: 0 0 83.333333%;
-        max-width: 83.333333%;
-    }
+#myFooter .google:hover {
+    color: #ef1a1a;
+}
 
-    .col-lg-11 {
-        -ms-flex: 0 0 91.666667%;
-        flex: 0 0 91.666667%;
-        max-width: 91.666667%;
-    }
+#myFooter .twitter:hover {
+    color: #00aced;
+}
 
-    .col-lg-12 {
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
+#myFooter .btn {
+    color: white;
+    background-color: #d84b6b;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    #myFooter {
+        text-align: center;
     }
 }
+

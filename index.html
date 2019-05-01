@@ -2,102 +2,145 @@
 <html xmlns="http://www.w3.org/1999/html">
 
 <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> PACMAN </title>
     <link rel="icon" href="project_files/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="project_files/css/style.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="project_files/css/bootstrap.css">-->
-    <!--<script type="text/javascript" src="project_files/lib/project.js"></script>-->
-    <!--<script type="text/javascript" src="project_files/lib/bootstrap.js"></script>-->
+    <script type="text/javascript" src="project_files/lib/project.js"></script>
     <script type="text/javascript" src="project_files/lib/jquery-3.4.0.js"></script>
+    <script type="text/javascript" src="project_files/lib/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="project_files/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="project_files/css/bootstrap.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
-
-<body class="content">
-    <div class="row">
-        <header style="position: fixed ; margin: 0;width: 100%;">
-            <div id="Logo">
-                <img style="position: center ; margin-left: 40%" src="project_files/images/game-logo.png" width="400" height="150" alt="Logo">
-            </div>
-            <div id="Navbar">
-                <ul>
-                    <li><a href="#" onclick="Show_Tab('Home')">Home</a></li>
-                    <li><a href="#" onclick="Show_Tab('Register')">Register</a></li>
-                    <li><a href="#" onclick="Show_Tab('Login')">Login</a></li>
-                    <li><a href="#" onclick="Show_Tab('About')">About</a></li>
-                </ul>
-            </div>
-        </header>
-    </div>
-    <div class="row" id="Stage">
-        <section id="Home">
+<body id="content" onload="First_Load()">
+<div class="row">
+    <header style="position: fixed ; margin: 0;width: 100%;">
+        <div id="Logo">
+            <img style="position: center ; margin-left: 40%" src="project_files/images/game-logo.png" width="400"
+                 height="150" alt="Logo">
+        </div>
+        <div id="Navbar">
+            <ul>
+                <li><a href="#" onclick="Show_Tab('Home')">Home</a></li>
+                <li><a href="#" onclick="Show_Tab('Register')">Register</a></li>
+                <li><a href="#" onclick="Show_Tab('Login')">Login</a></li>
+                <li><a href="#" onclick="Show_Tab('About')">About</a></li>
+            </ul>
+        </div>
+    </header>
+</div>
+<div class="row" id="Stage">
+    <section id="Home">
+        <br/>
+        <h1> test home </h1>
+        <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">Go to the Game</button>
+        <br/>
+        <br/>
+        <br/>
+    </section>
+    <section id="Register">
+        <br/>
+        <h1> test reg </h1>
+        <br/>
+        <br/>
+        <br/>
+    </section>
+    <section id="Login">
+        <br/>
+        <h1> test log </h1>
+        <br/>
+        <br/>
+        <br/>
+    </section>
+    <section id="About">
+        <br/>
+        <h1> test about </h1>
+        <br/>
+        <br/>
+        <br/>
+    </section>
+    <section id="Game">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div id="game_page1">
             <br/>
-            <div> test home </div>
             <br/>
             <br/>
-            <br/>
-        </section>
-        <section id="Register">
-            <br/>
-            <div> test reg </div>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="Login">
-            <br/>
-            <div> test log </div>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="About">
-            <br/>
-          <div>  test about </div>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="Game">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div id="game_page1">
-                <br/>
-                <br/>
-                <br/>
-            </div>
-            <div id="game_page2">
-                <div class="row">
-                    <div class="col-lg-8">
-                        SCORE:
-                        <input id="lblScore" type="text"/>
-                        <br/>
-                        TIME:
-                        <input id="lblTime" type="text"/>
-                        <br/>
-                    </div>
-                    <div class="col-lg-4">
-                        <canvas id="canvas" height="600" width="600"></canvas>
-                    </div>
+        </div>
+        <div id="game_page2">
+            <div class="row">
+                <div class="col-lg-8">
+                    SCORE:
+                    <input id="lblScore" type="text"/>
+                    <br/>
+                    TIME:
+                    <input id="lblTime" type="text"/>
+                    <br/>
+                </div>
+                <div class="col-lg-4">
+                    <canvas id="canvas" height="600" width="600"></canvas>
                 </div>
             </div>
-            <div id="game_page3">
-                <br/>
-                <br/>
-                <br/>
-            </div>
-        </section>
-        <div class="row">
-            <footer class="footer">
-                <br/>
-                test footer
-                <br/>
-                <br/>
-                <br/>
-            </footer>
         </div>
-    </div>
+        <div id="game_page3">
+            <br/>
+            <br/>
+            <br/>
+        </div>
+    </section>
+</div>
+<div class="row">
+    <footer id="myFooter">
+        <div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img style="position: center ; margin-left: 20% " src="project_files/images/game_company.png">
+                </div>
+                <div class="col-sm-2">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <div class="social-networks">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                    <button type="button" class="btn btn-default">Contact us</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2019 Copyright Text </p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript" src="project_files/lib/project.js"></script>
+<script type="text/javascript" src="project_files/lib/jquery-3.4.0.js"></script>
+<script type="text/javascript" src="project_files/lib/bootstrap.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ function Game_Login(){
 }
 
 ////<-- game -->////
-function Game_Loaded(){
+function First_Load(){
     Show_Tab('Home');
 }
 
