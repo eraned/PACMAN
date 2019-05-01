@@ -17,7 +17,7 @@
 
 <body id="content" onload="First_Load()">
 <div class="row">
-    <header style="position: fixed ; margin: 0;width: 100%;">
+    <header style="position: fixed ;overflow: hidden; margin: 0;width: 100%;">
         <div id="Logo">
             <img style="position: center ; margin-left: 40%" src="project_files/images/game-logo.png" width="400"
                  height="150" alt="Logo">
@@ -55,14 +55,14 @@
         <br/>
         <br/>
     </section>
-    <section  id="Login">
+    <section id="Login">
         <br/>
         <h1> test log </h1>
         <br/>
         <br/>
         <br/>
     </section>
-    <section  id="About">
+    <section id="About">
         <br/>
         <h1> test about </h1>
         <br/>
@@ -70,29 +70,86 @@
         <br/>
     </section>
     <section id="Game">
+
+
+        <!--<div class="form-group row">-->
+        <!--&lt;!&ndash; Material input &ndash;&gt;-->
+        <!--<label for="inputPassword3MD" class="col-sm-2 col-form-label">Password</label>-->
+        <!--<div class="col-sm-10">-->
+        <!--<div class="md-form mt-0">-->
+        <!--<input type="password" class="form-control" id="inputPassword3MD" placeholder="Password">-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
         <br/>
         <div id="game_page1">
             <div class="col-lg-8">
+                <form>
+                    <h1 style="margin-left:5%">GAME KEYS:</h1>
+                    <div class="form-group row">
+                        <div class="game_keys">
+                            <label for="UP" class="col-form-label"><a><i class="fa fa-arrow-circle-up"></i></a></label>
+                            <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="UP"
+                                   placeholder="PRESS YOUR KEY HERE...">
+                            <label for="DOWN" class="col-form-label"><a><i
+                                    class="fa fa-arrow-circle-down"></i></a></label>
+                            <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="DOWN"
+                                   placeholder="PRESS YOUR KEY HERE...">
+                            <label for="LEFT" class="col-form-label"><a><i
+                                    class="fa fa-arrow-circle-left"></i></a></label>
+                            <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="LEFT"
+                                   placeholder="PRESS YOUR KEY HERE...">
+                            <label for="RIGHT" class="col-form-label"><a><i
+                                    class="fa fa-arrow-circle-right"></i></a></label>
+                            <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="RIGHT"
+                                   placeholder="PRESS YOUR KEY HERE...">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="balls_number" class="col-sm-4 col-form-label">NUMBER OF BALLS:</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                    <input type="number" id="balls_number" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="balls_color" class="col-sm-4 col-form-label">BALLS COLOR:</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="email" class="form-control" id="balls_color">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="game_time" class="col-sm-4 col-form-label">TIME FOR GAME:</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="email" class="form-control" id="game_time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="number_monsters" class="col-sm-4 col-form-label">NUMBER OF MONSTERS:</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="number" id="number_monsters" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START GAME
+                            </button>
+                            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM
+                                SETTINGS
+                            </button>
+                        </div>
+                    </div>
+                </form>
                 <br/>
-                <label style="margin-left:5%" for="lblName">GAME KEYS:</label>
-                <br/>
-                <label style="margin-left:5%" for="lblName">NUMBER OF BALLS:</label>
-                <br/>
-                <label style="margin-left:5%" for="lblName">BALLS COLOR:</label>
-                <br/>
-                <label style="margin-left:5%" for="lblName">TIME FOR GAME:</label>
-                <br/>
-                <label style="margin-left:5%" for="lblName">NUMBER OF MONSTERS:</label>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div style="display: block;margin-left: 5%;">
-                    <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START GAME</button>
-                    <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM SETTINGS</button>
-                </div>
                 <br/>
                 <br/>
             </div>
@@ -101,17 +158,17 @@
             <div class="row">
                 <div class="col-lg-8">
                     <br/>
-                    <label style="margin-left:5%" for="lblName">PLAYER NAME:</label>
-                    <input style="margin-left:3%" id="lblName" type="text"/>
+                    <label for="lblName">PLAYER NAME:</label>
+                    <input id="lblName" type="text"/>
                     <br/>
-                    <label style="margin-left:5%" for="lblScore">SCORE:</label>
-                    <input style="margin-left:3%" id="lblScore" type="text"/>
+                    <label for="lblScore">SCORE:</label>
+                    <input id="lblScore" type="text"/>
                     <br/>
-                    <label style="margin-left:5%" for="lblTime">TIME:</label>
-                    <input style="margin-left:3%" id="lblTime" type="text"/>
+                    <label for="lblTime">TIME:</label>
+                    <input id="lblTime" type="text"/>
                     <br/>
-                    <label style="margin-left:5%" for="lblLive">LIVES:</label>
-                    <input style="margin-left:3%" id="lblLive" type="text"/>
+                    <label for="lblLive">LIVES:</label>
+                    <input id="lblLive" type="text"/>
                     <br/>
                     <br/>
                 </div>
@@ -123,11 +180,11 @@
         <div id="game_page3">
             <div class="col-lg-8">
                 <br/>
-                <label style="display: block;margin: 0 auto;" for="lblName">GAME FINISHED!</label>
+                <h1 style="display: block;margin-left: 50%;">GAME FINISHED!</h1>
                 <br/>
-                <label style="margin-left:5%" for="lblName">PLAYER NAME:</label>
+                <label for="lblName">PLAYER NAME:</label>
                 <br/>
-                <label style="margin-left:5%" for="lblName">YOUR SCORE:</label>
+                <label for="lblResult">YOUR SCORE:</label>
                 <br/>
                 <br/>
                 <br/>
@@ -137,7 +194,9 @@
                 <br/>
                 <input style="display: block;margin: 0 auto;" id="lblResult" type="text"/>
                 <br/>
-                <button style="display: block;margin: 0 auto;" onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                <button style="display: block;margin: 0 auto;" onclick="Show_Tab('Game')" type="button"
+                        class="btn btn-primary btn-lg">NEW GAME
+                </button>
                 <br/>
                 <br/>
             </div>
@@ -191,7 +250,7 @@
     </footer>
 </div>
 <script type="text/javascript" src="project_files/lib/project.js"></script>
-<script type="text/javascript" src="project_files/lib/jquery-3.4.0.js"></script>
-<script type="text/javascript" src="project_files/lib/bootstrap.js"></script>
+<!--<script type="text/javascript" src="project_files/lib/jquery-3.4.0.js"></script>-->
+<!--<script type="text/javascript" src="project_files/lib/bootstrap.js"></script>-->
 </body>
 </html>

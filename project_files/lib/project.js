@@ -73,6 +73,16 @@ function Show_Tab(id){
 
 function New_Game(){
 
+    function myKeyPress(e){
+        var keynum;
+
+        if(window.event) {
+            keynum = e.keyCode;
+        } else if(e.which){
+            keynum = e.which;
+        }
+        alert(String.fromCharCode(keynum));
+    }
 
 
 }

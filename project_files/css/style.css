@@ -181,3 +181,16 @@
     }
 }
 
+.game_keys{
+    font-size: 60px;
+    padding: 10px;
+    transition: 0.2s;
+    color: #00aced;
+    display: block;
+    margin-left:5%
+}
+
+label,input{
+    margin-left:5%
+}
+
