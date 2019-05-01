@@ -71,22 +71,48 @@
     </section>
     <section id="Game">
         <br/>
-        <br/>
-        <br/>
-        <br/>
         <div id="game_page1">
-            <br/>
-            <br/>
-            <br/>
+            <div class="col-lg-8">
+                <br/>
+                <label style="margin-left:5%" for="lblName">GAME KEYS:</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">NUMBER OF BALLS:</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">BALLS COLOR:</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">TIME FOR GAME:</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">NUMBER OF MONSTERS:</label>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="display: block;margin-left: 5%;">
+                    <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START GAME</button>
+                    <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM SETTINGS</button>
+                </div>
+                <br/>
+                <br/>
+            </div>
         </div>
         <div id="game_page2">
             <div class="row">
                 <div class="col-lg-8">
-                    SCORE:
-                    <input id="lblScore" type="text"/>
                     <br/>
-                    TIME:
-                    <input id="lblTime" type="text"/>
+                    <label style="margin-left:5%" for="lblName">PLAYER NAME:</label>
+                    <input style="margin-left:3%" id="lblName" type="text"/>
+                    <br/>
+                    <label style="margin-left:5%" for="lblScore">SCORE:</label>
+                    <input style="margin-left:3%" id="lblScore" type="text"/>
+                    <br/>
+                    <label style="margin-left:5%" for="lblTime">TIME:</label>
+                    <input style="margin-left:3%" id="lblTime" type="text"/>
+                    <br/>
+                    <label style="margin-left:5%" for="lblLive">LIVES:</label>
+                    <input style="margin-left:3%" id="lblLive" type="text"/>
+                    <br/>
                     <br/>
                 </div>
                 <div class="col-lg-4">
@@ -95,9 +121,26 @@
             </div>
         </div>
         <div id="game_page3">
-            <br/>
-            <br/>
-            <br/>
+            <div class="col-lg-8">
+                <br/>
+                <label style="display: block;margin: 0 auto;" for="lblName">GAME FINISHED!</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">PLAYER NAME:</label>
+                <br/>
+                <label style="margin-left:5%" for="lblName">YOUR SCORE:</label>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <input style="display: block;margin: 0 auto;" id="lblResult" type="text"/>
+                <br/>
+                <button style="display: block;margin: 0 auto;" onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                <br/>
+                <br/>
+            </div>
         </div>
     </section>
 </div>

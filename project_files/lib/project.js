@@ -8,6 +8,8 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
+var name;
+var lives;
 
 
 
