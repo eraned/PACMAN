@@ -32,49 +32,49 @@
         </div>
     </header>
 </div>
-<div class="Stage">
-    <section id="Home">
-        <div>
+<div class="row">
+    <div class="Stage">
+        <section id="Home">
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <button onclick="Show_Tab('game_page1')" type="button" class="btn btn-primary btn-lg">Go to the Game
+                </button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </section>
+        <section id="Register">
+            <br/>
+            <h1> test reg </h1>
             <br/>
             <br/>
             <br/>
+        </section>
+        <section id="Login">
+            <br/>
+            <h1> test log </h1>
             <br/>
             <br/>
-            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">Go to the Game</button>
+            <br/>
+        </section>
+        <section id="About">
+            <br/>
+            <h1> test about </h1>
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-        </div>
-    </section>
-    <section id="Register">
-        <br/>
-        <h1> test reg </h1>
-        <br/>
-        <br/>
-        <br/>
-    </section>
-    <section id="Login">
-        <br/>
-        <h1> test log </h1>
-        <br/>
-        <br/>
-        <br/>
-    </section>
-    <section id="About">
-        <br/>
-        <h1> test about </h1>
-        <br/>
-        <br/>
-        <br/>
-    </section>
-    <section id="Game">
-        <br/>
-        <br/>
-        <div id="game_page1">
+        </section>
+        <!--<section id="Game">-->
+        <section id="game_page1" style="margin-left:5%;">
             <form>
-                <h1 style="margin-left:5%">GAME KEYS:</h1>
+                <h1>GAME KEYS:</h1>
                 <div class="form-group row">
                     <div class="col-lg-4">
                         <div class="game_keys">
@@ -205,7 +205,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-6">
-                        <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START
+                        <button onclick="Show_Tab('game_page2')" type="button" class="btn btn-primary btn-lg">START
                             GAME
                         </button>
                         <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM
@@ -214,11 +214,8 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <div id="game_page2">
+        </section>
+        <section id="game_page2" style="margin-left:5%;">
             <div class="col-lg-4">
                 <br/>
                 <label for="lblName">PLAYER NAME:</label>
@@ -234,14 +231,15 @@
                 <input class="form-control" id="lblLive" type="text"/>
                 <br/>
                 <br/>
+                <button onclick="Show_Tab('game_page3')" type="button" class="btn btn-primary btn-lg">test for page 3
+                </button>
             </div>
             <div class="col-lg-8">
                 <canvas id="canvas" height="600" width="600"></canvas>
             </div>
-        </div>
-        <div id="game_page3">
+        </section>
+        <section id="game_page3" style="margin-left:5%;">
             <div class="col-lg-4">
-                <br/>
                 <h1 style="display: block;margin-left: 50%;">GAME FINISHED!</h1>
                 <br/>
                 <label for="lb">PLAYER NAME:</label>
@@ -258,12 +256,13 @@
                 <br/>
                 <input class="form-control" id="lblResult" type="text"/>
                 <br/>
-                <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
                 <br/>
                 <br/>
             </div>
-        </div>
-    </section>
+        </section>
+        <!--</section>-->
+    </div>
 </div>
 <div class="row">
     <footer id="myFooter">
@@ -312,7 +311,5 @@
     </footer>
 </div>
 <script type="text/javascript" src="project_files/lib/project.js"></script>
-<!--<script type="text/javascript" src="project_files/lib/jquery-3.4.0.js"></script>-->
-<!--<script type="text/javascript" src="project_files/lib/bootstrap.js"></script>-->
 </body>
 </html>
