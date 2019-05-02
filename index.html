@@ -76,7 +76,7 @@
             <form>
                 <h1 style="margin-left:5%">GAME KEYS:</h1>
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <div class="game_keys">
                             <label for="UP" class="col-form-label"><a><i
                                     class="fa fa-arrow-circle-up"></i></a></label>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <label for="balls_number" class="col-form-label">NUMBER OF BALLS:</label>
                         <div style="color:black">
                             <div class="form-check form-check-inline">
@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <label for="balls_color" class="col-form-label">BALLS COLOR:</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <label for="game_time" class="col-form-label">TIME FOR GAME:</label>
                         <div style="color: black">
                             <div class="form-check form-check-inline">
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START
                             GAME
                         </button>
@@ -219,30 +219,28 @@
         <br/>
         <br/>
         <div id="game_page2">
-            <div class="row">
-                <div class="col-lg-8">
-                    <br/>
-                    <label for="lblName">PLAYER NAME:</label>
-                    <input class="form-control" id="lblName" type="text"/>
-                    <br/>
-                    <label for="lblScore">SCORE:</label>
-                    <input class="form-control" id="lblScore" type="text"/>
-                    <br/>
-                    <label for="lblTime">TIME:</label>
-                    <input class="form-control" id="lblTime" type="text"/>
-                    <br/>
-                    <label for="lblLive">LIVES:</label>
-                    <input class="form-control" id="lblLive" type="text"/>
-                    <br/>
-                    <br/>
-                </div>
-                <div class="col-lg-4">
-                    <canvas id="canvas" height="600" width="600"></canvas>
-                </div>
+            <div class="col-lg-4">
+                <br/>
+                <label for="lblName">PLAYER NAME:</label>
+                <input class="form-control" id="lblName" type="text"/>
+                <br/>
+                <label for="lblScore">SCORE:</label>
+                <input class="form-control" id="lblScore" type="text"/>
+                <br/>
+                <label for="lblTime">TIME:</label>
+                <input class="form-control" id="lblTime" type="text"/>
+                <br/>
+                <label for="lblLive">LIVES:</label>
+                <input class="form-control" id="lblLive" type="text"/>
+                <br/>
+                <br/>
+            </div>
+            <div class="col-lg-8">
+                <canvas id="canvas" height="600" width="600"></canvas>
             </div>
         </div>
         <div id="game_page3">
-            <div class="col-lg-8">
+            <div class="col-lg-4">
                 <br/>
                 <h1 style="display: block;margin-left: 50%;">GAME FINISHED!</h1>
                 <br/>
@@ -258,11 +256,9 @@
                 <br/>
                 <br/>
                 <br/>
-                <input class="form-control" style="display: block;margin: 0 auto;" id="lblResult" type="text"/>
+                <input class="form-control" id="lblResult" type="text"/>
                 <br/>
-                <button style="display: block;margin: 0 auto;" onclick="Show_Tab('Game')" type="button"
-                        class="btn btn-primary btn-lg">NEW GAME
-                </button>
+                <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
                 <br/>
                 <br/>
             </div>
