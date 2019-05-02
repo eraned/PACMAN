@@ -12,48 +12,33 @@ var name;
 var lives;
 
 
-
-
-
-
-
-
-
-
-
 //FUNCTIONS
 
 ////<-- about -->////
-function Game_About(){
-
-
+function Game_About() {
 
 
 }
 
 ////<-- user registraion -->////
-function Game_Register(){
-
-
+function Game_Register() {
 
 
 }
 
 ////<-- user login -->////
-function Game_Login(){
-
-
+function Game_Login() {
 
 
 }
 
 ////<-- game -->////
-function First_Load(){
+function First_Load() {
     Show_Tab('Home');
 }
 
 
-function Show_Tab(id){
+function Show_Tab(id) {
     var Home_tab = document.getElementById('Home');
     Home_tab.style.visibility = "hidden";
     var Register_tab = document.getElementById('Register');
@@ -62,12 +47,8 @@ function Show_Tab(id){
     Login_tab.style.visibility = "hidden";
     var About_tab = document.getElementById('About');
     About_tab.style.visibility = "hidden";
-    var Game_tab1 = document.getElementById('game_page1');
-    Game_tab1.style.visibility = "hidden";
-    var Game_tab2 = document.getElementById('game_page2');
-    Game_tab2.style.visibility = "hidden";
-    var Game_tab3 = document.getElementById('game_page3');
-    Game_tab3.style.visibility = "hidden";
+    var Game_tab = document.getElementById('Game');
+    Game_tab.style.visibility = "hidden";
 
     //current tab presented
     var Current = document.getElementById(id);
@@ -75,14 +56,14 @@ function Show_Tab(id){
 }
 
 
-function New_Game(){
+function New_Game() {
 
-    function myKeyPress(e){
+    function myKeyPress(e) {
         var keynum;
 
-        if(window.event) {
+        if (window.event) {
             keynum = e.keyCode;
-        } else if(e.which){
+        } else if (e.which) {
             keynum = e.which;
         }
         alert(String.fromCharCode(keynum));
@@ -92,13 +73,10 @@ function New_Game(){
 }
 
 
-function Start_Game(){
-
-
-
-
+function Start_Game() {
+    Start();
+    Draw();
 }
-
 
 
 function Start() {
