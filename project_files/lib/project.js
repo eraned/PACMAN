@@ -40,24 +40,27 @@ function First_Load() {
 
 function Show_Tab(id) {
     var Home_tab = document.getElementById('Home');
-    Home_tab.style.visibility = "none";
+    Home_tab.style.display = "none";
     var Register_tab = document.getElementById('Register');
-    Register_tab.style.visibility = "none";
+    Register_tab.style.display = "none";
     var Login_tab = document.getElementById('Login');
-    Login_tab.style.visibility = "none";
+    Login_tab.style.display = "none";
     var About_tab = document.getElementById('About');
-    About_tab.style.visibility = "none";
+    About_tab.style.display = "none";
     var Game_tab1 = document.getElementById('game_page1');
-    Game_tab1.style.visibility = "none";
+    Game_tab1.style.display = "none";
     var Game_tab2 = document.getElementById('game_page2');
-    Game_tab2.style.visibility = "none";
+    Game_tab2.style.display = "none";
     var Game_tab3 = document.getElementById('game_page3');
-    Game_tab3.style.visibility = "none";
+    Game_tab3.style.display = "none";
 
 
-    //current tab presented
+    //current tab presenteds
     var Current = document.getElementById(id);
-    Current.style.visibility = "visible";
+    Current.style.display = "block";
+    // var Content = document.getElementById('content');
+    // Content.style.display = "visible";
+
 }
 
 
