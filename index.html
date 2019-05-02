@@ -17,7 +17,7 @@
 
 <body id="content" onload="First_Load()">
 <div class="row">
-    <header style="position: fixed ;overflow: hidden; margin: 0;width: 100%;">
+    <header style="position: fixed ;overflow: auto; margin: 0;width: 100%;">
         <div id="Logo">
             <img style="position: center ; margin-left: 40%" src="project_files/images/game-logo.png" width="400"
                  height="150" alt="Logo">
@@ -70,27 +70,16 @@
         <br/>
     </section>
     <section id="Game">
-
-
-        <!--<div class="form-group row">-->
-        <!--&lt;!&ndash; Material input &ndash;&gt;-->
-        <!--<label for="inputPassword3MD" class="col-sm-2 col-form-label">Password</label>-->
-        <!--<div class="col-sm-10">-->
-        <!--<div class="md-form mt-0">-->
-        <!--<input type="password" class="form-control" id="inputPassword3MD" placeholder="Password">-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
-
+        <br/>
         <br/>
         <div id="game_page1">
-            <div class="col-lg-8">
-                <form>
-                    <h1 style="margin-left:5%">GAME KEYS:</h1>
-                    <div class="form-group row">
+            <form>
+                <h1 style="margin-left:5%">GAME KEYS:</h1>
+                <div class="form-group row">
+                    <div class="col-lg-8">
                         <div class="game_keys">
-                            <label for="UP" class="col-form-label"><a><i class="fa fa-arrow-circle-up"></i></a></label>
+                            <label for="UP" class="col-form-label"><a><i
+                                    class="fa fa-arrow-circle-up"></i></a></label>
                             <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="UP"
                                    placeholder="PRESS YOUR KEY HERE...">
                             <label for="DOWN" class="col-form-label"><a><i
@@ -107,104 +96,143 @@
                                    placeholder="PRESS YOUR KEY HERE...">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="balls_number" class="col-sm-4 col-form-label">NUMBER OF BALLS:</label>
-                        <div class="col-sm-8">
-                            <div class="md-form mt-0">
-                                <div class="col-sm-8">
-                                    <select class="mdb-select colorful-select dropdown-primary md-form" multiple
-                                            searchable="Search here..">
-                                        <option value="1">50</option>
-                                        <option value="2">60</option>
-                                        <option value="3">70</option>
-                                        <option value="4">80</option>
-                                        <option value="5">90</option>
-                                    </select>
-                                </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <label for="balls_number" class="col-form-label">NUMBER OF BALLS:</label>
+                        <div style="color:black">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                       value="option1">
+                                <label class="form-check-label" for="inlineRadio1">50</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                       value="option2">
+                                <label class="form-check-label" for="inlineRadio2">60</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="option3">
+                                <label class="form-check-label" for="inlineRadio3">70</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="option3">
+                                <label class="form-check-label" for="inlineRadio3">80</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="option3">
+                                <label class="form-check-label" for="inlineRadio3">90</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <label for="balls_color" class="col-form-label">BALLS COLOR:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                       value="option1">
+                                <label style="color: blue" class="form-check-label" for="inlineRadio1">BLUE</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                       value="option2">
+                                <label style="color: red" class="form-check-label" for="inlineRadio2">RED</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="option3">
+                                <label style="color: yellow" class="form-check-label" for="inlineRadio3">YELLOW</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                       value="option3">
+                                <label style="color: greenyellow" class="form-check-label"
+                                       for="inlineRadio3">GREEN</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="balls_color" class="col-sm-4 col-form-label">BALLS COLOR:</label>
-                        <div class="col-sm-8">
-                            <div class="md-form mt-0">
-                                <div class="col-sm-8">
-                                    <select class="mdb-select colorful-select dropdown-primary md-form" multiple
-                                            searchable="Search here..">
-                                        <option value="1">BLUE</option>
-                                        <option value="2">RED</option>
-                                        <option value="3">YELLOW</option>
-                                        <option value="4">GREEN</option>
-                                        <option value="5">WHITE</option>
-                                    </select>
-                                </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <label for="game_time" class="col-form-label">TIME FOR GAME:</label>
+                        <div style="color: black">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">60</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">120</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio3" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">180</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="game_time" class="col-sm-4 col-form-label">TIME FOR GAME:</label>
-                        <div class="col-sm-8">
-                            <div class="md-form mt-0">
-                                <div class="col-sm-8">
-                                    <select class="mdb-select colorful-select dropdown-primary md-form" multiple
-                                            searchable="Search here..">
-                                        <option value="1">60 seconds</option>
-                                        <option value="2">90 seconds</option>
-                                        <option value="3">120 seconds</option>
-                                        <option value="4">150 seconds</option>
-                                        <option value="5">180 seconds</option>
-                                    </select>
-                                </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <label for="number_monsters" class="col-form-label">NUMBER OF MONSTERS:</label>
+                        <div style="color: black">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                       id="inlineRadio3" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">3</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="number_monsters" class="col-sm-4 col-form-label">NUMBER OF MONSTERS:</label>
-                        <div class="col-sm-8">
-                            <div class="md-form mt-0">
-                                <div class="col-sm-8">
-                                    <select class="mdb-select colorful-select dropdown-primary md-form" multiple
-                                            searchable="Search here..">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START
+                            GAME
+                        </button>
+                        <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM
+                            SETTINGS
+                        </button>
                     </div>
-                    <br/>
-                    <br/>
-                    <div class="form-group row">
-                        <div class="col-sm-8">
-                            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">START GAME
-                            </button>
-                            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM
-                                SETTINGS
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <br/>
-                <br/>
-                <br/>
-            </div>
+                </div>
+            </form>
         </div>
+        <br/>
+        <br/>
+        <br/>
         <div id="game_page2">
             <div class="row">
                 <div class="col-lg-8">
                     <br/>
                     <label for="lblName">PLAYER NAME:</label>
-                    <input id="lblName" type="text"/>
+                    <input class="form-control" id="lblName" type="text"/>
                     <br/>
                     <label for="lblScore">SCORE:</label>
-                    <input id="lblScore" type="text"/>
+                    <input class="form-control" id="lblScore" type="text"/>
                     <br/>
                     <label for="lblTime">TIME:</label>
-                    <input id="lblTime" type="text"/>
+                    <input class="form-control" id="lblTime" type="text"/>
                     <br/>
                     <label for="lblLive">LIVES:</label>
-                    <input id="lblLive" type="text"/>
+                    <input class="form-control" id="lblLive" type="text"/>
                     <br/>
                     <br/>
                 </div>
@@ -218,17 +246,19 @@
                 <br/>
                 <h1 style="display: block;margin-left: 50%;">GAME FINISHED!</h1>
                 <br/>
-                <label for="lblName">PLAYER NAME:</label>
+                <label for="lb">PLAYER NAME:</label>
+                <input class="form-control" id="lb" type="text"/>
                 <br/>
-                <label for="lblResult">YOUR SCORE:</label>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <label for="lbl">YOUR SCORE:</label>
+                <input class="form-control" id="lbl" type="text"/>
                 <br/>
                 <br/>
                 <br/>
-                <input style="display: block;margin: 0 auto;" id="lblResult" type="text"/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <input class="form-control" style="display: block;margin: 0 auto;" id="lblResult" type="text"/>
                 <br/>
                 <button style="display: block;margin: 0 auto;" onclick="Show_Tab('Game')" type="button"
                         class="btn btn-primary btn-lg">NEW GAME

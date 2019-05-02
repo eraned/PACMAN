@@ -40,12 +40,15 @@
 }
 
 .Stage{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    /*display: -ms-flexbox;*/
+    display: block;
+    /*-ms-flex-wrap: wrap;*/
+    /*flex-wrap: wrap;*/
+    /*margin-right:auto;*/
+    /*margin-left: auto;*/
     font-family: 'Wendy One', sans-serif;
     font-size: 3em;
     font-weight: 600;
@@ -185,12 +188,11 @@
     font-size: 60px;
     padding: 10px;
     transition: 0.2s;
-    color: #00aced;
-    display: block;
-    margin-left:5%
+    color: deepskyblue;
 }
 
-label,input{
-    margin-left:5%
+#Game{
+    margin-left:5%;
+    /*display: block;*/
 }
 
