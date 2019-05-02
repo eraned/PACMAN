@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
 </head>
 
-<body id="content" onload="First_Load()">
+<body onload="First_Load()">
 <div class="row">
     <header style="position: fixed ;overflow: auto; margin: 0;width: 100%;">
         <div id="Logo">
@@ -32,47 +32,50 @@
         </div>
     </header>
 </div>
-<div class="row">
-    <div class="Stage">
-        <section id="Home">
-            <div>
+
+
+<div class="content">
+    <div class="row">
+        <div class="Stage">
+            <section id="Home">
+                <div>
+                    <br/>
+                    <br/>
+                    <h1> test home </h1>
+                    <br/>
+                    <br/>
+                    <button onclick="Show_Tab('game_page1')" type="button" class="btn btn-primary btn-lg">Go to the Game
+                    </button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </section>
+            <section class="container cont" id="Register">
+                <br/>
+                <h1> test reg </h1>
                 <br/>
                 <br/>
                 <br/>
+            </section>
+            <section id="Login">
                 <br/>
-                <br/>
-                <button onclick="Show_Tab('game_page1')" type="button" class="btn btn-primary btn-lg">Go to the Game
-                </button>
-                <br/>
-                <br/>
+                <h1> test log </h1>
                 <br/>
                 <br/>
                 <br/>
-            </div>
-        </section>
-        <section id="Register">
-            <br/>
-            <h1> test reg </h1>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="Login">
-            <br/>
-            <h1> test log </h1>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="About">
-            <br/>
-            <h1> test about </h1>
-            <br/>
-            <br/>
-            <br/>
-        </section>
-        <section id="Game">
-            <div id="game_page1" style="margin-left:5%;">
+            </section>
+            <section id="About">
+                <br/>
+                <h1> test about </h1>
+                <br/>
+                <br/>
+                <br/>
+            </section>
+            <!--<section id="Game">-->
+            <section id="game_page1" style="margin-left:5%;">
                 <form>
                     <h1>GAME KEYS:</h1>
                     <div class="form-group row">
@@ -142,8 +145,6 @@
                                            value="option3">
                                     <label class="form-check-label" for="inlineRadio3">90</label>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -235,8 +236,8 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <div id="game_page2" style="margin-left:5%;">
+            </section>
+            <section id="game_page2" style="margin-left:5%;">
                 <div class="row">
                     <div class="col-lg-4">
                         <br/>
@@ -264,8 +265,8 @@
                         <canvas style="margin-left: 30%" id="canvas" height="600" width="600"></canvas>
                     </div>
                 </div>
-            </div>
-            <div id="game_page3" style="margin-left:5%;">
+            </section>
+            <section id="game_page3" style="margin-left:5%;">
                 <h1 style="display: block;margin-left: 40%;">GAME FINISHED!</h1>
                 <div class="col-lg-4">
                     <label for="lb">PLAYER NAME:</label>
@@ -277,8 +278,9 @@
                     <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
                     <br/>
                 </div>
-            </div>
-        </section>
+            </section>
+            <!--</section>-->
+        </div>
     </div>
 </div>
 <div class="row">

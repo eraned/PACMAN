@@ -2,7 +2,7 @@
 
 var context = canvas.getContext("2d");
 var shape = new Object();
-var board;
+var board = document.getElementById("canvas");
 var score;
 var pac_color;
 var start_time;
@@ -47,8 +47,13 @@ function Show_Tab(id) {
     Login_tab.style.visibility = "hidden";
     var About_tab = document.getElementById('About');
     About_tab.style.visibility = "hidden";
-    var Game_tab = document.getElementById('Game');
-    Game_tab.style.visibility = "hidden";
+    var Game_tab1 = document.getElementById('game_page1');
+    Game_tab1.style.visibility = "hidden";
+    var Game_tab2 = document.getElementById('game_page2');
+    Game_tab2.style.visibility = "hidden";
+    var Game_tab3 = document.getElementById('game_page3');
+    Game_tab3.style.visibility = "hidden";
+
 
     //current tab presented
     var Current = document.getElementById(id);
