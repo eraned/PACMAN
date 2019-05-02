@@ -78,22 +78,33 @@
                     <div class="form-group row">
                         <div class="col-lg-4">
                             <div class="game_keys">
-                                <label for="UP" class="col-form-label"><a><i
-                                        class="fa fa-arrow-circle-up"></i></a></label>
-                                <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="UP"
-                                       placeholder="PRESS YOUR KEY HERE...">
-                                <label for="DOWN" class="col-form-label"><a><i
-                                        class="fa fa-arrow-circle-down"></i></a></label>
-                                <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="DOWN"
-                                       placeholder="PRESS YOUR KEY HERE...">
-                                <label for="LEFT" class="col-form-label"><a><i
-                                        class="fa fa-arrow-circle-left"></i></a></label>
-                                <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="LEFT"
-                                       placeholder="PRESS YOUR KEY HERE...">
-                                <label for="RIGHT" class="col-form-label"><a><i
-                                        class="fa fa-arrow-circle-right"></i></a></label>
-                                <input type="text" onkeypress="return myKeyPress(event)" class="form-control" id="RIGHT"
-                                       placeholder="PRESS YOUR KEY HERE...">
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="UP" class="col-sm-2 col-form-label"><a><i
+                                            class="fa fa-arrow-circle-up"></i></a></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)"
+                                           class="col-sm-10 form-control" id="UP" placeholder="PRESS YOUR KEY HERE...">
+                                </div>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="DOWN" class="col-sm-2 col-form-label"><a><i
+                                            class="fa fa-arrow-circle-down"></i></a></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)"
+                                           class="col-sm-10 form-control" id="DOWN"
+                                           placeholder="PRESS YOUR KEY HERE...">
+                                </div>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="LEFT" class="col-sm-2 col-form-label"><a><i
+                                            class="fa fa-arrow-circle-left"></i></a></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)"
+                                           class="col-sm-10 form-control" id="LEFT"
+                                           placeholder="PRESS YOUR KEY HERE...">
+                                </div>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="RIGHT" class="col-sm-2 col-form-label"><a><i
+                                            class="fa fa-arrow-circle-right"></i></a></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)"
+                                           class="col-sm-10 form-control" id="RIGHT"
+                                           placeholder="PRESS YOUR KEY HERE...">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -259,12 +270,10 @@
                 <div class="col-lg-4">
                     <label for="lb">PLAYER NAME:</label>
                     <input class="form-control" id="lb" type="text"/>
-                    <br/>
                     <label for="lbl">YOUR SCORE:</label>
                     <input class="form-control" id="lbl" type="text"/>
-                    <br/>
+                    <label for="lbl">VERDICT:</label>
                     <input class="form-control" id="lblResult" type="text"/>
-                    <br/>
                     <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
                     <br/>
                 </div>
