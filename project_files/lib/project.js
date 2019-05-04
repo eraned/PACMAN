@@ -9,18 +9,17 @@ var start_time;
 var time_elapsed;
 var interval;
 var Game_song = new Audio('project_files/audio/you_are_totahh.mp3');
-Game_song.loop =true;
-var playername=document.getElementById("userlabel");
-var color_5P = document.getElementById("5P_color").value;
-var color_15P = document.getElementById("15P_color").value;
-var color_25P = document.getElementById("25P_color").value;
-var Balls_num = document.getElementById("").value;
-var Game_time = document.getElementById("").value;
-var Monster_num = document.getElementById("").value;
-var Key_up = document.getElementById("UP").value;
-var Key_down = document.getElementById("DOWN").value;
-var Key_left = document.getElementById("LEFT").value;
-var Key_right = document.getElementById("RIGHT").value;
+var playername;
+var color_5P;
+var color_15P;
+var color_25P;
+var Balls_num;
+var Game_time;
+var Monster_num;
+var Key_up;
+var Key_down;
+var Key_left;
+var Key_right;
 var lives;
 var verdict;
 var beck_img;
@@ -78,6 +77,7 @@ function Show_Tab(id) {
 ////<-- game -->////
 function New_Game() {
     Show_Tab('game_page1');
+    Game_song.loop=true;
     Game_song.pause();
 
 
@@ -112,6 +112,17 @@ function Start_Game() {
 
 
 function Start() {
+    playername=document.getElementById("userlabel");
+    Balls_num = document.getElementById("").value;
+    color_5P = Math.floor(0.6 * Balls_num);
+    color_15P = Math.floor(0.3 * Balls_num);
+    color_25P = Math.floor(0.1 * Balls_num);
+    Game_time = document.getElementById("").value;
+    Monster_num = document.getElementById("").value;
+    Key_up = document.getElementById("UP").value;
+    Key_down = document.getElementById("DOWN").value;
+    Key_left = document.getElementById("LEFT").value;
+    Key_right = document.getElementById("RIGHT").value;
     board = new Array();
     score = 0;
     pac_color = "yellow";
@@ -119,6 +130,10 @@ function Start() {
     var food_remain = 50;
     var pacman_remain = 1;
     start_time = new Date();
+
+
+
+
     for (var i = 0; i < 10; i++) {
         board[i] = new Array();
         //put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
@@ -188,7 +203,7 @@ function GetKeyPressed() {
 
 function Draw() {
 
-    beck_img = document.getElementById("can_background");
+    // beck_img = document.getElementById("can_background");
 
 
 
@@ -224,7 +239,7 @@ function Draw() {
         }
     }
 
-    context.drawImage(beck_img,0,0,canvas.width, canvas.height);
+    // context.drawImage(beck_img,0,0,canvas.width, canvas.height);
 }
 
 function UpdatePosition() {
