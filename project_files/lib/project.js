@@ -1,5 +1,4 @@
 //VAR DECELERATION
-
 var context = canvas.getContext("2d");
 var shape = new Object();
 var board = document.getElementById("canvas");
@@ -20,9 +19,22 @@ var Key_up;
 var Key_down;
 var Key_left;
 var Key_right;
-var lives;
+var lives = 3;
 var verdict;
-var beck_img;
+var FG_interval;
+var G_interval;
+var X_monster1 = 0;
+var Y_monster1 = 0;
+var X_monster2 = 0;
+var Y_monster2 = 9;
+var X_monster3 = 9;
+var Y_monster3 = 0;
+var X_Pac = 19;
+var Y_Pac = 19;
+var X_Life;
+var Y_Life;
+var X_Mushroom;
+var Y_Mushroom;
 
 
 //FUNCTIONS
@@ -79,20 +91,9 @@ function New_Game() {
     Show_Tab('game_page1');
     Game_song.loop=true;
     Game_song.pause();
-
-
-    function myKeyPress(e) {
-        var keynum;
-
-        if (window.event) {
-            keynum = e.keyCode;
-        } else if (e.which) {
-            keynum = e.which;
-        }
-        alert(String.fromCharCode(keynum));
-    }
-
-
+    window.clearInterval(interval);
+    window.clearInterval(FG_interval);
+    window.clearInterval(G_nterval);
 }
 
 function RandomSettings() {
@@ -112,26 +113,25 @@ function Start_Game() {
 
 
 function Start() {
-    playername=document.getElementById("userlabel");
-    Balls_num = document.getElementById("").value;
+    Balls_num = $('input[name=BallsOption]:checked').val();
     color_5P = Math.floor(0.6 * Balls_num);
     color_15P = Math.floor(0.3 * Balls_num);
     color_25P = Math.floor(0.1 * Balls_num);
-    Game_time = document.getElementById("").value;
-    Monster_num = document.getElementById("").value;
+    Game_time = $('input[name=TimeOption]:checked').val();
+    Monster_num = $('input[name=MonsterOption]:checked').val();
     Key_up = document.getElementById("UP").value;
     Key_down = document.getElementById("DOWN").value;
     Key_left = document.getElementById("LEFT").value;
     Key_right = document.getElementById("RIGHT").value;
+
+    document.getElementById("lblLive").value=numOfLife;
     board = new Array();
     score = 0;
     pac_color = "yellow";
     var cnt = 100;
-    var food_remain = 50;
+    var food_remain = Balls_num;
     var pacman_remain = 1;
     start_time = new Date();
-
-
 
 
     for (var i = 0; i < 10; i++) {
@@ -170,6 +170,18 @@ function Start() {
         keysDown[e.code] = false;
     }, false);
     interval = setInterval(UpdatePosition, 250);
+
+
+    function myKeyPress(e) {
+        var keynum;
+
+        if (window.event) {
+            keynum = e.keyCode;
+        } else if (e.which) {
+            keynum = e.which;
+        }
+        alert(String.fromCharCode(keynum));
+    }
 }
 
 
