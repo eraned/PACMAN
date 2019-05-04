@@ -58,9 +58,6 @@ function Show_Tab(id) {
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
-    // var Content = document.getElementById('content');
-    // Content.style.display = "visible";
-
 }
 
 

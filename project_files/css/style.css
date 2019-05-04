@@ -1,11 +1,18 @@
-
 /*body {*/
-    /*width: 100%;*/
-    /*height: auto;*/
-    /*overflow: auto;*/
-    /*overflow-x: hidden;*/
-    /*overflow-y: hidden;*/
+/*width: 100%;*/
+/*height: auto;*/
+/*overflow: auto;*/
+/*overflow-x: hidden;*/
+/*overflow-y: hidden;*/
 /*}*/
+
+header {
+    position: fixed;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
 
 #Logo {
     background: -webkit-linear-gradient(70deg, #fff810 30%, rgba(0, 0, 0, 0) 30%), -webkit-linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
@@ -14,27 +21,27 @@
     background: linear-gradient(70deg, #fff810 30%, rgba(0, 0, 0, 0) 30%), linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
 }
 
-#Navbar {
+#Menu {
     font-family: 'Wendy One', sans-serif;
     color: #ffffff;
     font-weight: 400;
     text-transform: uppercase;
 }
 
-#Navbar ul {
+#Menu ul {
     list-style-type: none;
     background-color: orangered;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 50px;
 }
 
-#Navbar li {
+#Menu li {
     float: left;
 }
 
-#Navbar li a {
+#Menu li a {
     display: block;
     color: white;
     text-align: center;
@@ -42,20 +49,19 @@
     text-decoration: none;
 }
 
-#Navbar li a:hover {
+#Menu li a:hover {
     background-color: deepskyblue;
 }
 
 .Stage {
+    /*width: 100%;*/
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
     width: 100%;
+    height: auto;
     margin-right: auto;
     margin-left: auto;
-    /*display: -ms-flexbox;*/
     display: block;
-    /*-ms-flex-wrap: wrap;*/
-    /*flex-wrap: wrap;*/
-    /*margin-right:auto;*/
-    /*margin-left: auto;*/
     font-family: 'Wendy One', sans-serif;
     font-size: 3em;
     font-weight: 600;
@@ -69,12 +75,7 @@
 
 
 #content {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    height: auto;
+
 }
 
 
@@ -190,13 +191,13 @@
     #myFooter {
         text-align: center;
     }
+
 }
 
-.game_keys {
-    font-size: 60px;
-    padding: 10px;
-    transition: 0.2s;
-    color: deepskyblue;
+section{
+    margin-left: 5%;
 }
+
+
 
 
