@@ -29,8 +29,8 @@ var X_monster2 = 0;
 var Y_monster2 = 9;
 var X_monster3 = 9;
 var Y_monster3 = 0;
-var X_Pac = 19;
-var Y_Pac = 19;
+var X_Pac = 9;
+var Y_Pac = 9;
 var X_Life;
 var Y_Life;
 var X_Mushroom;
@@ -85,11 +85,10 @@ function Show_Tab(id) {
 }
 
 
-
 ////<-- game -->////
 function New_Game() {
     Show_Tab('game_page1');
-    Game_song.loop=true;
+    Game_song.loop = true;
     Game_song.pause();
     window.clearInterval(interval);
     window.clearInterval(FG_interval);
@@ -99,16 +98,13 @@ function New_Game() {
 function RandomSettings() {
 
 
-
-
-
 }
 
 
 function Start_Game() {
-    Show_Tab('game_page2');
     Start();
     Draw();
+    Show_Tab('game_page2');
 }
 
 
@@ -123,8 +119,9 @@ function Start() {
     Key_down = document.getElementById("DOWN").value;
     Key_left = document.getElementById("LEFT").value;
     Key_right = document.getElementById("RIGHT").value;
+    document.getElementById("lblLive").value = lives;
 
-    document.getElementById("lblLive").value=numOfLife;
+
     board = new Array();
     score = 0;
     pac_color = "yellow";
@@ -143,8 +140,38 @@ function Start() {
             } else {
                 var randomNum = Math.random();
                 if (randomNum <= 1.0 * food_remain / cnt) {
-                    food_remain--;
-                    board[i][j] = 1;
+                    // food_remain--;
+                    // board[i][j] = 1;
+                    var tmp_rand = Math.random();
+                    var tmp = food_remain;
+                    if (tmp_rand < 0.6 && color_5P > 0) {
+                        board[i][j] = 1;
+                        food_remain--;
+                        color_5P--;
+                    } else if (tmp_rand > 0.6 && tmp_rand < 0.9 && color_15P > 0) {
+                        board[i][j] = 5;
+                        food_remain--;
+                        color_15P--;
+                    } else if (color_25P > 0) {
+                        board[i][j] = 6;
+                        food_remain--;
+                        color_25P--;
+                    }
+                    if (food_remain == tmp) {
+                        if (color_25P > 0) {
+                            board[i][j] = 6;
+                            food_remain--;
+                            color_25P--;
+                        } else if (color_15P > 0) {
+                            board[i][j] = 5;
+                            food_remain--;
+                            color_15P--;
+                        } else {
+                            board[i][j] = 1;
+                            food_remain--;
+                            color_5P--;
+                        }
+                    }
                 } else if (randomNum < 1.0 * (pacman_remain + food_remain) / cnt) {
                     shape.i = i;
                     shape.j = j;
@@ -162,6 +189,8 @@ function Start() {
         board[emptyCell[0]][emptyCell[1]] = 1;
         food_remain--;
     }
+
+    SetNewElemntsPos();
     keysDown = {};
     addEventListener("keydown", function (e) {
         keysDown[e.code] = true;
@@ -169,8 +198,9 @@ function Start() {
     addEventListener("keyup", function (e) {
         keysDown[e.code] = false;
     }, false);
-    interval = setInterval(UpdatePosition, 250);
-
+    interval = setInterval(UpdatePosition, 130);
+    FG_interval = setInterval(UpdateMonsters, 880);
+    G_interval = setInterval(UpdatePacman, 880);
 
     function myKeyPress(e) {
         var keynum;
@@ -182,6 +212,17 @@ function Start() {
         }
         alert(String.fromCharCode(keynum));
     }
+}
+
+function SetNewElemntsPos() {
+    var tmplife = findRandomEmptyCell(board);
+    X_Life = tmplife[0];
+    Y_Life = tmplife[1];
+    board[tmplife[0]][tmplife[1]] = 9;
+    var tmpmush = findRandomEmptyCell(board);
+    X_Mushroom = tmpmush[0];
+    Y_Mushroom = tmpmush[1];
+    board[tmpmush[0]][tmpmush[1]] = 10;
 }
 
 
@@ -216,7 +257,6 @@ function GetKeyPressed() {
 function Draw() {
 
     // beck_img = document.getElementById("can_background");
-
 
 
     context.clearRect(0, 0, canvas.width, canvas.height); //clean board
@@ -254,6 +294,8 @@ function Draw() {
     // context.drawImage(beck_img,0,0,canvas.width, canvas.height);
 }
 
+
+/////////////
 function UpdatePosition() {
     board[shape.i][shape.j] = 0;
     var x = GetKeyPressed();
@@ -292,4 +334,163 @@ function UpdatePosition() {
     } else {
         Draw();
     }
+}
+
+function UpdateMonsters() {
+    if (gst1X != -1 && gst1Y != -1)
+        calcGstMove(1, gst1X, gst1Y);
+    if (gst2X != -1 && gst2Y != -1)
+        calcGstMove(2, gst2X, gst2Y);
+    if (gst3X != -1 && gst3Y != -1)
+        calcGstMove(3, gst3X, gst3Y);
+}
+
+function MonsterMove(gst,gstX, gstY) {
+    var upMove = 2560, downMove = 2560, rightMove = 2560, leftMove = 2560;
+
+    //check that moves are leagel - not walls
+
+    //up
+    if (gstY - 1 >= 0 && isLegalMove(gstX,gstY - 1))
+        upMove = ghostPacmanDistance(gstX, gstY - 1);
+
+    //down
+    if (gstY + 1 <= 15 && isLegalMove(gstX,gstY + 1))
+        downMove = ghostPacmanDistance(gstX, gstY + 1);
+
+    //right
+    if (gstX + 1 <= 15 && isLegalMove(gstX+1,gstY))
+        rightMove = ghostPacmanDistance(gstX + 1, gstY);
+
+    //left
+    if (gstX - 1 >= 0 && isLegalMove(gstX-1,gstY))
+        leftMove = ghostPacmanDistance(gstX - 1, gstY);
+
+    var minMove = Math.min(upMove, downMove, rightMove, leftMove);
+    if (minMove == upMove)
+    {
+        changeMon(gst,gstX,gstY-1);
+        return;
+    }
+    if (minMove == downMove)
+    {
+        changeMon(gst,gstX,gstY+1);
+        return;
+    }
+    if (minMove == rightMove)
+    {
+        changeMon(gst,gstX+1,gstY);
+        return;
+    }
+    if (minMove == leftMove)
+    {
+        changeMon(gst,gstX-1,gstY);
+        return;
+    }
+}
+
+function changeMon(mon,x,y)
+{
+    if(mon==1)
+    {
+        board[gst1X][gst1Y]=0;
+        gst1X=x;
+        gst1Y=y;
+        board[gst1X][gst1Y]=6;
+    }
+    else if (mon==2)
+    {
+        board[gst2X][gst2Y]=0;
+        gst2X=x;
+        gst2Y=y;
+        board[gst2X][gst2Y]=7;
+    }else if(mon==3)
+    {
+        board[gst3X][gst3Y]=0;
+        gst3X=x;
+        gst3Y=y;
+        board[gst3X][gst3Y]=8;
+    }
+}
+
+function CalcDistance(posX, posY) {
+    var xPac = shape.i;
+    var yPca = shape.j;
+    var xPow = Math.pow(xPac - posX, 2);
+    var yPow = Math.pow(yPca - posY, 2);
+    return Math.sqrt(xPow + yPow);
+
+}
+
+function UpdatePacman() {
+    var positions = getAllPossibleMoves();
+    var numOfMoves = positions.length;
+    var rand = Math.random();
+    if (numOfMoves == 1) {
+        xMsPac = positions[0][0];
+        yMsPac = positions[0][1];
+    }
+    if (numOfMoves == 2) {
+        if (rand <= 0.5) {
+            xMsPac = positions[0][0];
+            yMsPac = positions[0][1];
+        }
+        else {
+            xMsPac = positions[1][0];
+            yMsPac = positions[1][1];
+        }
+    }
+    if (numOfMoves == 3) {
+        if (rand <= 0.33) {
+            xMsPac = positions[0][0];
+            yMsPac = positions[0][1];
+        }
+        else if (rand > 0.33 && rand < 0.66) {
+            xMsPac = positions[1][0];
+            yMsPac = positions[1][1];
+        }
+        else {
+            xMsPac = positions[2][0];
+            yMsPac = positions[2][1];
+        }
+    }
+    if (numOfMoves == 4) {
+        if (rand <= 0.25) {
+            xMsPac = positions[0][0];
+            yMsPac = positions[0][1];
+        }
+        else if (rand > 0.25 && rand < 0.5) {
+            xMsPac = positions[1][0];
+            yMsPac = positions[1][1];
+        }
+        else if (rand > 0.5 && rand <= 0.75) {
+            xMsPac = positions[2][0];
+            yMsPac = positions[2][1];
+        }
+        else {
+            xMsPac = positions[3][0];
+            yMsPac = positions[3][1];
+        }
+    }
+
+}
+
+function getAllPossibleMoves() {
+    var arrayOfMoves = [];
+    var posX = xMsPac;
+    var posY = yMsPac;
+    if (posX + 1 < 20 && board[posX + 1][posY] != 4) {
+        arrayOfMoves.push([posX + 1, posY]);
+    }
+    if (posX - 1 > -1 && board[posX - 1][posY] != 4) {
+        arrayOfMoves.push([posX - 1, posY]);
+    }
+    if (posY + 1 < 20 && board[posX][posY + 1] != 4) {
+        arrayOfMoves.push([posX, posY + 1]);
+    }
+    if (posY - 1 > -1 && board[posX][posY - 1] != 4) {
+        arrayOfMoves.push([posX, posY - 1]);
+    }
+    return arrayOfMoves;
+
 }
