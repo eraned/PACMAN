@@ -254,9 +254,13 @@ function GetKeyPressed() {
     }
 }
 
-function Draw() {
-
-    // beck_img = document.getElementById("can_background");
+function Draw(P) {
+    var Monster1_img = document.getElementById("M1")
+    var Monster2_img = document.getElementById("M2")
+    var Monster3_img = document.getElementById("M3")
+    var Pacman_img = document.getElementById("Pac")
+    var Mush_img = document.getElementById("Mush")
+    var Life_img = document.getElementById("Life")
 
 
     context.clearRect(0, 0, canvas.width, canvas.height); //clean board
@@ -268,30 +272,101 @@ function Draw() {
             center.x = i * 60 + 30;
             center.y = j * 60 + 30;
             if (board[i][j] === 2) {
-                context.beginPath();
-                context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
-                context.lineTo(center.x, center.y);
-                context.fillStyle = pac_color; //color
-                context.fill();
+                // // context.beginPath();
+                // context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+                // // context.lineTo(center.x, center.y);
+                // // context.fillStyle = pac_color; //color
+                //
+                // // context.fill();
+                // // context.beginPath();
+                // context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
+                // // context.fillStyle = "black"; //color
+                // // context.fill();
+
+
+                if (P == 1) //up
+                {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 30, 1.65 * Math.PI, 1.35 * Math.PI); // half circle
+                    context.lineTo(center.x, center.y);
+                    context.fillStyle = pac_color; //color
+                    context.fill();
+                    context.beginPath();
+                    context.arc(center.x - 15, center.y + 5, 5, 0, 2 * Math.PI); // circle
+                    context.fillStyle = "black"; //color
+                    context.fill();
+
+                }
+                if (P == 2) //down
+                {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 30, 0.65 * Math.PI, 0.35 * Math.PI); // half circle
+                    context.lineTo(center.x, center.y);
+                    context.fillStyle = pac_color; //color
+                    context.fill();
+                    context.beginPath();
+                    context.arc(center.x - 15, center.y + 5, 5, 0, 2 * Math.PI); // circle
+                    context.fillStyle = "black"; //color
+                    context.fill();
+
+                }
+                if (P == 3) // left
+                {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 30, 1.15 * Math.PI, 0.85 * Math.PI); // half circle
+                    context.lineTo(center.x, center.y);
+                    context.fillStyle = pac_color; //color
+                    context.fill();
+                    context.beginPath();
+                    context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
+                    context.fillStyle = "black"; //color
+                    context.fill();
+                }
+                if (P == 4) // right
+                {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+                    context.lineTo(center.x, center.y);
+                    context.fillStyle = pac_color; //color
+                    context.fill();
+                    context.beginPath();
+                    context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
+                    context.fillStyle = "black"; //color
+                    context.fill();
+
+                }
+            } else if (board[i][j] === 1) {
                 context.beginPath();
                 context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
                 context.fillStyle = "black"; //color
                 context.fill();
-            } else if (board[i][j] === 1) {
-                context.beginPath();
-                context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-                context.fillStyle = "black"; //color
-                context.fill();
+
             } else if (board[i][j] === 4) {
                 context.beginPath();
                 context.rect(center.x - 30, center.y - 30, 60, 60);
                 context.fillStyle = "grey"; //color
                 context.fill();
+
+            } else if (board[i][j] == 5) {
+                context.beginPath();
+                context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
+                context.fillStyle = color15; //color
+                context.fill();
+            } else if (board[i][j] == 6) {
+                context.beginPath();
+                context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
+                context.fillStyle = color25; //color
+                context.fill();
             }
         }
     }
 
-    // context.drawImage(beck_img,0,0,canvas.width, canvas.height);
+    context.drawImage(Monster1_img, 25 * xM1, 25 * yM1, 23, 23);
+    context.drawImage(Monster2_img, 25 * xM2, 25 * yM2, 23, 23);
+    context.drawImage(Monster3_img, 25 * xM3, 25 * yM3, 23, 23);
+    context.drawImage(Pacman_img, 25 * xMsPac, 25 * yMsPac, 23, 23);
+    context.drawImage(Mush_img, 25 * xCerry, 25 * yCherry, 23, 23);
+    context.drawImage(Life_img, 25 * xClock, 25 * yClock, 23, 23);
 }
 
 
@@ -322,18 +397,122 @@ function UpdatePosition() {
     if (board[shape.i][shape.j] === 1) {
         score++;
     }
+    if (board[shape.i][shape.j] === 5) {
+        score++;
+    }
+    if (board[shape.i][shape.j] === 6) {
+        score++;
+    }
+
+    if (shape.i==lifex && shape.j == lifey) {
+        board[lifex][lifey]=0;
+        lifex=-1;
+        lifey=-1;
+        numOfLife++;
+        board[shape.i][shape.j]=2;
+    }
+
+    if (shape.i == xMsPac && shape.j == yMsPac) {
+        score += 50;
+        xMsPac = 70;
+        yMsPac = 70;
+    }
+
+    // board[shape.i][shape.j] = 2;
+    // var currentTime = new Date();
+    // time_elapsed = (currentTime - start_time) / 1000;
+    // if (score >= 20 && time_elapsed <= 10) {
+    //     pac_color = "green";
+    // }
+    // if (score === 50) {
+    //     window.clearInterval(interval);
+    //     window.alert("Game completed");
+    // } else {
+    //     Draw();
+    // }
+
+
+    if ((shape.i==gst1X && shape.j == gst1Y)||(shape.i==gst2X && shape.j == gst2Y)|| (shape.i==gst3X && shape.j == gst3Y)){
+        numOfLife--;
+        if(numOfLife!=0)
+        {
+            pausetime=new Date();
+            window.alert("Stay Away From Ghosts!! "+numOfLife+ " Life left");
+            var d=new Date();
+            timechange+=(d-pausetime)/1000;
+        }
+        else
+        {
+            window.alert("Game Over!! "+numOfLife+ " Life left");
+            window.clearInterval(interval);
+            window.clearInterval(foodghoustinterval);
+            window.clearInterval(Ghoustinterval);
+            audio.pause();
+            return;
+        }
+        document.getElementById("lbllife").value=numOfLife;
+
+        if(gst1X!=-1&& gst1Y!=-1)
+        {
+            board[gst1X][gst1Y]=0;
+            gst1X=0;
+            gst1Y=0;
+            board[gst1X][gst1Y]=6;
+        }
+        if(gst2X!=-1 && gst2Y!=-1)
+        {
+            board[gst2X][gst2Y]=0;
+            gst2X=0;
+            gst2Y=15;
+            board[gst2X][gst2Y]=7;
+        }
+        if(gst3X!=-1&& gst3Y!=-1)
+        {
+            board[gst3X][gst3Y]=0;
+            gst3X=15;
+            gst3Y=0;
+            board[gst3X][gst3Y]=8;
+        }
+        board[shape.i][shape.j]=0;
+        var pacnewPos=findRandomEmptyCell(board);
+        shape.i=pacnewPos[0];
+        shape.j=pacnewPos[1];
+        board[shape.i][shape.j]=2;
+        position=4;
+        keysDown = {};
+        addEventListener("keydown", function (e) {
+            keysDown[e.keyCode] = true;
+        }, false);
+        addEventListener("keyup", function (e) {
+            keysDown[e.keyCode] = false;
+        }, false);
+    }
+
     board[shape.i][shape.j] = 2;
     var currentTime = new Date();
-    time_elapsed = (currentTime - start_time) / 1000;
+    time_elapsed = (currentTime - start_time) / 1000- timechange;
     if (score >= 20 && time_elapsed <= 10) {
         pac_color = "green";
     }
-    if (score === 50) {
+    if (time_elapsed>=gameTime || score==maxScore) {
+        if(score>=150)
+        {
+            window.alert("We Have a Winner!");
+        }
+        else
+        {
+            window.alert("You can do better!");
+        }
         window.clearInterval(interval);
-        window.alert("Game completed");
-    } else {
-        Draw();
+        window.clearInterval(foodghoustinterval);
+        window.clearInterval(Ghoustinterval);
+        audio.pause();
+        audio.load();
     }
+    else {
+        Draw(position);
+    }
+
 }
 
 function UpdateMonsters() {
@@ -345,71 +524,62 @@ function UpdateMonsters() {
         calcGstMove(3, gst3X, gst3Y);
 }
 
-function MonsterMove(gst,gstX, gstY) {
+function MonsterMove(gst, gstX, gstY) {
     var upMove = 2560, downMove = 2560, rightMove = 2560, leftMove = 2560;
 
     //check that moves are leagel - not walls
 
     //up
-    if (gstY - 1 >= 0 && isLegalMove(gstX,gstY - 1))
+    if (gstY - 1 >= 0 && isLegalMove(gstX, gstY - 1))
         upMove = ghostPacmanDistance(gstX, gstY - 1);
 
     //down
-    if (gstY + 1 <= 15 && isLegalMove(gstX,gstY + 1))
+    if (gstY + 1 <= 15 && isLegalMove(gstX, gstY + 1))
         downMove = ghostPacmanDistance(gstX, gstY + 1);
 
     //right
-    if (gstX + 1 <= 15 && isLegalMove(gstX+1,gstY))
+    if (gstX + 1 <= 15 && isLegalMove(gstX + 1, gstY))
         rightMove = ghostPacmanDistance(gstX + 1, gstY);
 
     //left
-    if (gstX - 1 >= 0 && isLegalMove(gstX-1,gstY))
+    if (gstX - 1 >= 0 && isLegalMove(gstX - 1, gstY))
         leftMove = ghostPacmanDistance(gstX - 1, gstY);
 
     var minMove = Math.min(upMove, downMove, rightMove, leftMove);
-    if (minMove == upMove)
-    {
-        changeMon(gst,gstX,gstY-1);
+    if (minMove == upMove) {
+        changeMon(gst, gstX, gstY - 1);
         return;
     }
-    if (minMove == downMove)
-    {
-        changeMon(gst,gstX,gstY+1);
+    if (minMove == downMove) {
+        changeMon(gst, gstX, gstY + 1);
         return;
     }
-    if (minMove == rightMove)
-    {
-        changeMon(gst,gstX+1,gstY);
+    if (minMove == rightMove) {
+        changeMon(gst, gstX + 1, gstY);
         return;
     }
-    if (minMove == leftMove)
-    {
-        changeMon(gst,gstX-1,gstY);
+    if (minMove == leftMove) {
+        changeMon(gst, gstX - 1, gstY);
         return;
     }
 }
 
-function changeMon(mon,x,y)
-{
-    if(mon==1)
-    {
-        board[gst1X][gst1Y]=0;
-        gst1X=x;
-        gst1Y=y;
-        board[gst1X][gst1Y]=6;
-    }
-    else if (mon==2)
-    {
-        board[gst2X][gst2Y]=0;
-        gst2X=x;
-        gst2Y=y;
-        board[gst2X][gst2Y]=7;
-    }else if(mon==3)
-    {
-        board[gst3X][gst3Y]=0;
-        gst3X=x;
-        gst3Y=y;
-        board[gst3X][gst3Y]=8;
+function changeMon(mon, x, y) {
+    if (mon == 1) {
+        board[gst1X][gst1Y] = 0;
+        gst1X = x;
+        gst1Y = y;
+        board[gst1X][gst1Y] = 6;
+    } else if (mon == 2) {
+        board[gst2X][gst2Y] = 0;
+        gst2X = x;
+        gst2Y = y;
+        board[gst2X][gst2Y] = 7;
+    } else if (mon == 3) {
+        board[gst3X][gst3Y] = 0;
+        gst3X = x;
+        gst3Y = y;
+        board[gst3X][gst3Y] = 8;
     }
 }
 
@@ -434,8 +604,7 @@ function UpdatePacman() {
         if (rand <= 0.5) {
             xMsPac = positions[0][0];
             yMsPac = positions[0][1];
-        }
-        else {
+        } else {
             xMsPac = positions[1][0];
             yMsPac = positions[1][1];
         }
@@ -444,12 +613,10 @@ function UpdatePacman() {
         if (rand <= 0.33) {
             xMsPac = positions[0][0];
             yMsPac = positions[0][1];
-        }
-        else if (rand > 0.33 && rand < 0.66) {
+        } else if (rand > 0.33 && rand < 0.66) {
             xMsPac = positions[1][0];
             yMsPac = positions[1][1];
-        }
-        else {
+        } else {
             xMsPac = positions[2][0];
             yMsPac = positions[2][1];
         }
@@ -458,16 +625,13 @@ function UpdatePacman() {
         if (rand <= 0.25) {
             xMsPac = positions[0][0];
             yMsPac = positions[0][1];
-        }
-        else if (rand > 0.25 && rand < 0.5) {
+        } else if (rand > 0.25 && rand < 0.5) {
             xMsPac = positions[1][0];
             yMsPac = positions[1][1];
-        }
-        else if (rand > 0.5 && rand <= 0.75) {
+        } else if (rand > 0.5 && rand <= 0.75) {
             xMsPac = positions[2][0];
             yMsPac = positions[2][1];
-        }
-        else {
+        } else {
             xMsPac = positions[3][0];
             yMsPac = positions[3][1];
         }
