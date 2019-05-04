@@ -198,6 +198,10 @@ section{
     margin-left: 5%;
 }
 
+canvas{
+    border: 3px solid black;
+}
+
 
 
 

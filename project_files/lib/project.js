@@ -8,8 +8,22 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-var name;
+var Game_song = new Audio('project_files/audio/you_are_totahh.mp3');
+Game_song.loop =true;
+var playername=document.getElementById("userlabel");
+var color_5P = document.getElementById("5P_color").value;
+var color_15P = document.getElementById("15P_color").value;
+var color_25P = document.getElementById("25P_color").value;
+var Balls_num = document.getElementById("").value;
+var Game_time = document.getElementById("").value;
+var Monster_num = document.getElementById("").value;
+var Key_up = document.getElementById("UP").value;
+var Key_down = document.getElementById("DOWN").value;
+var Key_left = document.getElementById("LEFT").value;
+var Key_right = document.getElementById("RIGHT").value;
 var lives;
+var verdict;
+var beck_img;
 
 
 //FUNCTIONS
@@ -32,7 +46,6 @@ function Game_Login() {
 
 }
 
-////<-- game -->////
 function First_Load() {
     Show_Tab('Home');
 }
@@ -61,7 +74,12 @@ function Show_Tab(id) {
 }
 
 
+
+////<-- game -->////
 function New_Game() {
+    Show_Tab('game_page1');
+    Game_song.pause();
+
 
     function myKeyPress(e) {
         var keynum;
@@ -77,8 +95,17 @@ function New_Game() {
 
 }
 
+function RandomSettings() {
+
+
+
+
+
+}
+
 
 function Start_Game() {
+    Show_Tab('game_page2');
     Start();
     Draw();
 }
@@ -160,6 +187,11 @@ function GetKeyPressed() {
 }
 
 function Draw() {
+
+    beck_img = document.getElementById("can_background");
+
+
+
     context.clearRect(0, 0, canvas.width, canvas.height); //clean board
     lblScore.value = score;
     lblTime.value = time_elapsed;
@@ -192,7 +224,7 @@ function Draw() {
         }
     }
 
-
+    context.drawImage(beck_img,0,0,canvas.width, canvas.height);
 }
 
 function UpdatePosition() {

@@ -19,18 +19,18 @@
 <div class="row">
     <header>
         <!--<div class="nav">-->
-            <div id="Logo">
-                <img src="project_files/images/game-logo.png" width="400"
-                     height="150" alt="Logo">
-            </div>
-            <div id="Menu">
-                <ul>
-                    <li><a href="#" onclick="Show_Tab('Home')">Home</a></li>
-                    <li><a href="#" onclick="Show_Tab('Register')">Register</a></li>
-                    <li><a href="#" onclick="Show_Tab('Login')">Login</a></li>
-                    <li><a href="#" onclick="Show_Tab('About')">About</a></li>
-                </ul>
-            </div>
+        <div id="Logo">
+            <img src="project_files/images/game-logo.png" width="400"
+                 height="150" alt="Logo">
+        </div>
+        <div id="Menu">
+            <ul>
+                <li><a href="#" onclick="Show_Tab('Home')">Home</a></li>
+                <li><a href="#" onclick="Show_Tab('Register')">Register</a></li>
+                <li><a href="#" onclick="Show_Tab('Login')">Login</a></li>
+                <li><a href="#" onclick="Show_Tab('About')">About</a></li>
+            </ul>
+        </div>
         <!--</div>-->
     </header>
 </div>
@@ -44,7 +44,7 @@
                     <h1> test home </h1>
                     <br/>
                     <br/>
-                    <button onclick="Show_Tab('game_page1')" type="button" class="btn btn-primary btn-lg">Go to the Game
+                    <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">Go to the Game
                     </button>
                     <br/>
                     <br/>
@@ -84,182 +84,135 @@
                         <div class="col-lg-4">
                             <div class="game_keys">
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="UP" class="col-sm-2 col-form-label"><img
-                                            src="project_files/images/up.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)"
-                                           class="col-sm-10 form-control" id="UP" placeholder="PRESS YOUR KEY HERE...">
+                                    <label for="UP" class="col-sm-2 col-form-label"><img src="project_files/images/up.png" height="64" width="64"/></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="UP" placeholder="PRESS YOUR KEY HERE...">
 
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="DOWN" class="col-sm-2 col-form-label"><img
-                                            src="project_files/images/down.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)"
-                                           class="col-sm-10 form-control" id="DOWN"
-                                           placeholder="PRESS YOUR KEY HERE...">
+                                    <label for="DOWN" class="col-sm-2 col-form-label"><img src="project_files/images/down.png" height="64" width="64"/></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="DOWN" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="LEFT" class="col-sm-2 col-form-label"><img
-                                            src="project_files/images/left.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)"
-                                           class="col-sm-10 form-control" id="LEFT"
-                                           placeholder="PRESS YOUR KEY HERE...">
+                                    <label for="LEFT" class="col-sm-2 col-form-label"><img src="project_files/images/left.png" height="64" width="64"/></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="LEFT" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="RIGHT" class="col-sm-2 col-form-label"><img
-                                            src="project_files/images/right.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)"
-                                           class="col-sm-10 form-control" id="RIGHT"
-                                           placeholder="PRESS YOUR KEY HERE...">
+                                    <label for="RIGHT" class="col-sm-2 col-form-label"><img src="project_files/images/right.png" height="64" width="64"/></label>
+                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="RIGHT" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-4">
-                            <label for="balls_number" class="col-form-label">NUMBER OF BALLS:</label>
+                            <label class="col-form-label">NUMBER OF BALLS:</label>
                             <div style="color:black">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio1"
-                                           value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">50</label>
+                                    <input class="form-check-input" type="radio" name="BallsOption" id="50B" value="50">
+                                    <label class="form-check-label" for="50B">50</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio2"
-                                           value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">60</label>
+                                    <input class="form-check-input" type="radio" name="BallsOption" id="60B" value="60">
+                                    <label class="form-check-label" for="60B">60</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3"
-                                           value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">70</label>
+                                    <input class="form-check-input" type="radio" name="BallsOption" id="70B" value="70">
+                                    <label class="form-check-label" for="70B">70</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3"
-                                           value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">80</label>
+                                    <input class="form-check-input" type="radio" name="BallsOption" id="80B" value="80">
+                                    <label class="form-check-label" for="80B">80</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3"
-                                           value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">90</label>
+                                    <input class="form-check-input" type="radio" name="BallsOption" id="90B" value="90">
+                                    <label class="form-check-label" for="90B">90</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-6">
-                            <label for="balls_color" class="col-form-label">BALLS COLOR:</label>
+                            <label class="col-form-label">BALLS COLOR:</label>
                             <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio1"
-                                           value="option1">
-                                    <label style="color: blue" class="form-check-label" for="inlineRadio1">BLUE</label>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="UP" class="col-lg-8 col-form-label">5 POINTS BALLS COLOR</label>
+                                    <input type="color" class="col-lg-1 form-control" id="5P_color" value="#009933">
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio2"
-                                           value="option2">
-                                    <label style="color: red" class="form-check-label" for="inlineRadio2">RED</label>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="UP" class="col-lg-8 col-form-label">15 POINTS BALLS COLOR</label>
+                                    <input type="color" class="col-lg-1 form-control" id="15P_color" value="#0000cc">
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3"
-                                           value="option3">
-                                    <label style="color: yellow" class="form-check-label"
-                                           for="inlineRadio3">YELLOW</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3"
-                                           value="option3">
-                                    <label style="color: greenyellow" class="form-check-label"
-                                           for="inlineRadio3">GREEN</label>
+                                <div class="form-row" style="justify-content: center; align-items: center">
+                                    <label for="UP" class="col-lg-8 col-form-label">25 POINTS BALLS COLOR</label>
+                                    <input type="color" class="col-lg-1 form-control" id="25P_color" value="#ff0000">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-4">
-                            <label for="game_time" class="col-form-label">TIME FOR GAME:</label>
+                            <label class="col-form-label">TIME FOR GAME:</label>
                             <div style="color: black">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">60</label>
+                                    <input class="form-check-input" type="radio" name="TimeOption" id="60T" value="60">
+                                    <label class="form-check-label" for="60T">60</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">120</label>
+                                    <input class="form-check-input" type="radio" name="TimeOption" id="120T" value="120">
+                                    <label class="form-check-label" for="120T">120</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">180</label>
+                                    <input class="form-check-input" type="radio" name="TimeOption" id="180T" value="180">
+                                    <label class="form-check-label" for="180T">180</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-8">
-                            <label for="number_monsters" class="col-form-label">NUMBER OF MONSTERS:</label>
+                            <label class="col-form-label">NUMBER OF MONSTERS:</label>
                             <div style="color: black">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                    <input class="form-check-input" type="radio" name="MonsterOption" id="1M" value="1">
+                                    <label class="form-check-label" for="1M">1</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                    <input class="form-check-input" type="radio" name="MonsterOption" id="2M" value="2">
+                                    <label class="form-check-label" for="2M">2</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">3</label>
+                                    <input class="form-check-input" type="radio" name="MonsterOption" id="3M" value="3">
+                                    <label class="form-check-label" for="3M">3</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-6">
-                            <button onclick="Show_Tab('game_page2')" type="button" class="btn btn-primary btn-lg">START
-                                GAME
-                            </button>
-                            <button onclick="Show_Tab('Game')" type="button" class="btn btn-primary btn-lg">RANDOM
-                                SETTINGS
-                            </button>
+                            <button onclick="Start_Game()" type="button" class="btn btn-primary btn-lg">START GAME</button>
+                            <button onclick="RandomSettings()" type="button" class="btn btn-primary btn-lg">RANDOM SETTINGS</button>
                         </div>
                     </div>
                 </form>
                 <br/>
             </section>
-            <section id="game_page2" >
+            <section id="game_page2">
                 <br/>
                 <br/>
                 <br/>
+                <img id="can_background" width="600" height="600" style="display: none;" src="project_files/images/canvas_patt.jpg">
                 <div class="row">
                     <div class="col-lg-4">
                         <br/>
                         <label for="lblName">PLAYER NAME:</label>
-                        <input class="form-control" id="lblName" type="text"/>
+                        <input class="form-control" id="lblName" type="text" readonly="readonly"/>
                         <label for="lblScore">SCORE:</label>
                         <input class="form-control" id="lblScore" type="text"/>
                         <label for="lblTime">TIME:</label>
                         <input class="form-control" id="lblTime" type="text"/>
                         <label for="lblLive">LIVES:</label>
-                        <input class="form-control" id="lblLive" type="text"/>
-                        <button onclick="Show_Tab('game_page3')" type="button" class="btn btn-primary btn-lg">test for
-                            page
-                            3
-                        </button>
+                        <input class="form-control" id="lblLive" type="text" readonly="readonly"/>
+                        <button onclick="Show_Tab('game_page3')" type="button" class="btn btn-primary btn-lg">test for page 3</button>
                         <br/>
                         <script>
                             $(document).ready(function () {
@@ -279,13 +232,13 @@
                 <br/>
                 <h1 style="display: block;margin-left: 40%;">GAME FINISHED!</h1>
                 <div class="col-lg-4">
-                    <label for="lb">PLAYER NAME:</label>
-                    <input class="form-control" id="lb" type="text"/>
-                    <label for="lbl">YOUR SCORE:</label>
-                    <input class="form-control" id="lbl" type="text"/>
-                    <label for="lbl">VERDICT:</label>
+                    <label for="lblName">PLAYER NAME:</label>
+                    <input class="form-control" id="lblName" type="text" readonly="readonly"/>
+                    <label for="lblScore">YOUR SCORE:</label>
+                    <input class="form-control" id="lblScore" type="text"/>
+                    <label for="lblResult">VERDICT:</label>
                     <input class="form-control" id="lblResult" type="text"/>
-                    <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                    <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
                     <br/>
                 </div>
                 <br/>
