@@ -85,20 +85,20 @@
                             <div class="game_keys">
                                 <div class="form-row" style="justify-content: center; align-items: center">
                                     <label class="col-sm-2 col-form-label"><img src="project_files/images/up.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="UP" placeholder="PRESS YOUR KEY HERE...">
+                                    <input type="text" onkeydown="myKeyPress(this,event)" class="col-sm-10 form-control" id="UP" maxlength="1" placeholder="PRESS YOUR KEY HERE...">
 
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
                                     <label class="col-sm-2 col-form-label"><img src="project_files/images/down.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="DOWN" placeholder="PRESS YOUR KEY HERE...">
+                                    <input type="text" onkeydown="myKeyPress(this,event)" class="col-sm-10 form-control" id="DOWN" maxlength="1" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
                                     <label class="col-sm-2 col-form-label"><img src="project_files/images/left.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="LEFT" placeholder="PRESS YOUR KEY HERE...">
+                                    <input type="text" onkeydown="myKeyPress(this,event)" class="col-sm-10 form-control" id="LEFT" maxlength="1" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
                                     <label class="col-sm-2 col-form-label"><img src="project_files/images/right.png" height="64" width="64"/></label>
-                                    <input type="text" onkeypress="return myKeyPress(event)" class="col-sm-10 form-control" id="RIGHT" placeholder="PRESS YOUR KEY HERE...">
+                                    <input type="text" onkeydown="myKeyPress(this,event)" class="col-sm-10 form-control" id="RIGHT" maxlength="1" placeholder="PRESS YOUR KEY HERE...">
                                 </div>
                             </div>
                         </div>
@@ -135,15 +135,15 @@
                             <label class="col-form-label">BALLS COLOR:</label>
                             <div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="UP" class="col-lg-8 col-form-label">5 POINTS BALLS COLOR</label>
+                                    <label class="col-lg-8 col-form-label">5 POINTS BALLS COLOR</label>
                                     <input type="color" class="col-lg-1 form-control" id="5P_color" value="#009933">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="UP" class="col-lg-8 col-form-label">15 POINTS BALLS COLOR</label>
+                                    <label class="col-lg-8 col-form-label">15 POINTS BALLS COLOR</label>
                                     <input type="color" class="col-lg-1 form-control" id="15P_color" value="#0000cc">
                                 </div>
                                 <div class="form-row" style="justify-content: center; align-items: center">
-                                    <label for="UP" class="col-lg-8 col-form-label">25 POINTS BALLS COLOR</label>
+                                    <label class="col-lg-8 col-form-label">25 POINTS BALLS COLOR</label>
                                     <input type="color" class="col-lg-1 form-control" id="25P_color" value="#ff0000">
                                 </div>
                             </div>
@@ -203,6 +203,7 @@
                 <img id="Pac" width="60" height="60" style="display: none;" src="project_files/images/pacman.png">
                 <img id="Mush" width="60" height="60" style="display: none;" src="project_files/images/mushroom.png">
                 <img id="Life" width="60" height="60" style="display: none;" src="project_files/images/life.png">
+                <img id="Boost" width="60" height="60" style="display: none;" src="project_files/images/boost.png">
                 <br/>
                 <br/>
                 <br/>
@@ -217,13 +218,13 @@
                         <input class="form-control" id="lblTime" type="text"/>
                         <label for="lblLive">LIVES:</label>
                         <input class="form-control" id="lblLive" type="text" readonly="readonly"/>
-                        <button onclick="Show_Tab('game_page3')" type="button" class="btn btn-primary btn-lg">test for page 3</button>
+                        <button onclick="Finish_Game()" type="button" class="btn btn-primary btn-lg">test for page 3</button>
                         <br/>
-                        <script>
-                            $(document).ready(function () {
-                                Start_Game();
-                            });
-                        </script>
+                        <!--<script>-->
+                            <!--$(document).ready(function () {-->
+                                <!--Start_Game();-->
+                            <!--});-->
+                        <!--</script>-->
                     </div>
                     <div class="col-lg-8">
                         <br/>
@@ -244,6 +245,7 @@
                     <label for="lblResult">VERDICT:</label>
                     <input class="form-control" id="lblResult" type="text"/>
                     <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                    <button onclick="Show_Tab('HOME')" type="button" class="btn btn-primary btn-lg">BACK HOME</button>
                     <br/>
                 </div>
                 <br/>
