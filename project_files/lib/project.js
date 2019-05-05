@@ -32,7 +32,6 @@ var X_monster3 = 9;
 var Y_monster3 = 0;
 var X_Pac;
 var Y_Pac;
-var Pacman = new Object();
 var X_Life;
 var Y_Life;
 var X_Mushroom;
@@ -93,8 +92,8 @@ function Show_Tab(id) {
 ////<-- game -->////
 function New_Game() {
     Show_Tab('game_page1');
-    Game_song.pause();
-    Game_song.load();
+    // Game_song.load();
+    // Game_song.pause();
     window.clearInterval(interval);
     window.clearInterval(B_interval);
     window.clearInterval(G_nterval);
@@ -109,18 +108,17 @@ function New_Game() {
     document.getElementById("lblLive").value = lives;
 
     if (Monster_num == 3) {
-
         X_monster1 = 0;
         Y_monster1 = 0;
         X_monster2 = 0;
-        Y_monster2 = 15;
-        X_monster3 = 15;
+        Y_monster2 = 9;
+        X_monster3 = 9;
         Y_monster3 = 0;
     } else if (Monster_num == 2) {
         X_monster1 = 0;
         Y_monster1 = 0;
         X_monster2 = 0;
-        Y_monster2 = 15;
+        Y_monster2 = 9;
         X_monster3 = -1;
         Y_monster3 = -1;
     } else if (Monster_num == 1) {
@@ -131,9 +129,6 @@ function New_Game() {
         X_monster3 = -1;
         Y_monster3 = -1;
     }
-
-    X_Boost = 15;
-    Y_Boost = 15;
     Start_Game();
 }
 
@@ -211,29 +206,29 @@ function Start() {
                     var tmp_rand = Math.random();
                     var tmp = food_remain;
                     if (tmp_rand < 0.6 && color_5P > 0) {
-                        board[i][j] = 1;
+                        board[i][j] = 5;
                         food_remain--;
                         color_5P--;
                     } else if (tmp_rand > 0.6 && tmp_rand < 0.9 && color_15P > 0) {
-                        board[i][j] = 5;
+                        board[i][j] = 6;
                         food_remain--;
                         color_15P--;
                     } else if (color_25P > 0) {
-                        board[i][j] = 6;
+                        board[i][j] = 7;
                         food_remain--;
                         color_25P--;
                     }
                     if (food_remain == tmp) {
                         if (color_25P > 0) {
-                            board[i][j] = 6;
+                            board[i][j] = 7;
                             food_remain--;
                             color_25P--;
                         } else if (color_15P > 0) {
-                            board[i][j] = 5;
+                            board[i][j] = 6;
                             food_remain--;
                             color_15P--;
                         } else {
-                            board[i][j] = 1;
+                            board[i][j] = 5;
                             food_remain--;
                             color_5P--;
                         }
@@ -268,18 +263,22 @@ function Start() {
     }, false);
     interval = setInterval(UpdatePosition, 130);
     B_interval = setInterval(UpdateMonsters, 880);
-    M_interval = setInterval(UpdatePacman, 880);
+    M_interval = setInterval(RandBoost, 880);
 }
 
 function SetNewElemntsPos() {
+    var tmpboost = findRandomEmptyCell(board);
+    X_Boost = tmpboost[0];
+    Y_Boost = tmpboost[1];
+    board[tmpboost[0]][tmpboost[1]] = 8;
     var tmplife = findRandomEmptyCell(board);
     X_Life = tmplife[0];
     Y_Life = tmplife[1];
-    board[tmplife[0]][tmplife[1]] = 9;
+    board[tmplife[0]][tmplife[1]] = 13;
     var tmpmush = findRandomEmptyCell(board);
     X_Mushroom = tmpmush[0];
     Y_Mushroom = tmpmush[1];
-    board[tmpmush[0]][tmpmush[1]] = 10;
+    board[tmpmush[0]][tmpmush[1]] = 12;
 }
 
 
@@ -294,18 +293,7 @@ function Draw() {
             center.x = i * 60 + 30;
             center.y = j * 60 + 30;
             if (board[i][j] === 2) {
-                // context.beginPath();
-                // context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
-                // context.lineTo(center.x, center.y);
-                // context.fillStyle = pac_color; //color
-                // context.fill();
-                // context.beginPath();
-                // context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
-                // context.fillStyle = "black"; //color
-                // context.fill();
-
                 context.beginPath();
-
                 if (tmp == 1) {
                     context.arc(center.x, center.y, 30, 1.35 * Math.PI, 1.65 * Math.PI, true);//up pacMan
                 } else if (tmp == 2) {
@@ -340,38 +328,38 @@ function Draw() {
                 context.rect(center.x - 30, center.y - 30, 60, 60);
                 context.fillStyle = "grey"; //color
                 context.fill();
-            } else if (board[i][j] == 1.5) {
+            } else if (board[i][j] == 5) {
                 context.beginPath();
                 context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("5ptsBalls").value; //color
+                context.fillStyle = document.getElementById("5P_color").value; //color
                 context.fill();
-            } else if (board[i][j] == 1.15) {
+            } else if (board[i][j] == 6) {
                 context.beginPath();
                 context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("15ptsBalls").value; //color
+                context.fillStyle = document.getElementById("15P_color").value; //color
                 context.fill();
-            } else if (board[i][j] == 1.25) {
+            } else if (board[i][j] == 7) {
                 context.beginPath();
                 context.arc(center.x, center.y, 8, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("25ptsBalls").value; //color
+                context.fillStyle = document.getElementById("25P_color").value; //color
                 context.fill();
-            } else if (board[i][j] == 5) {
+            } else if (board[i][j] == 8) {
                 var Boost_img = document.getElementById("Boost")
                 context.drawImage(Boost_img, 25 * xClock, 25 * yClock, 23, 23);
-            } else if (board[i][j] == 6) {
+            } else if (board[i][j] == 9) {
                 var Monster1_img = document.getElementById("M1")
                 context.drawImage(Monster1_img, 25 * xM1, 25 * yM1, 23, 23);
 
-            } else if (board[i][j] == 7) {
+            } else if (board[i][j] == 10) {
                 var Monster2_img = document.getElementById("M2")
                 context.drawImage(Monster2_img, 25 * xM2, 25 * yM2, 23, 23);
-            } else if (board[i][j] == 8) {
+            } else if (board[i][j] == 11) {
                 var Monster3_img = document.getElementById("M3")
                 context.drawImage(Monster3_img, 25 * xM3, 25 * yM3, 23, 23);
-            } else if (board[i][j] == 9) {
+            } else if (board[i][j] == 12) {
                 var Mush_img = document.getElementById("Mush")
                 context.drawImage(Mush_img, 25 * xCerry, 25 * yCherry, 23, 23);
-            } else if (board[i][j] == 10) {
+            } else if (board[i][j] == 13) {
                 var Life_img = document.getElementById("Life")
                 context.drawImage(Life_img, 25 * xClock, 25 * yClock, 23, 23);
             }
@@ -380,9 +368,7 @@ function Draw() {
 }
 
 
-/////////////
 function UpdatePosition() {
-
     board[Pacman.i][Pacman.j] = 0;
     var x = GetKeyPressed();
     if (x === 1) {
@@ -405,13 +391,13 @@ function UpdatePosition() {
             Pacman.i++;
         }
     }
-    if (board[Pacman.i][Pacman.j] == 1.5) {
+    if (board[Pacman.i][Pacman.j] == 5) {
         score += 5;
     }
-    if (board[Pacman.i][Pacman.j] == 1.25) {
+    if (board[Pacman.i][Pacman.j] == 7) {
         score += 25;
     }
-    if (board[Pacman.i][Pacman.j] == 1.15) {
+    if (board[Pacman.i][Pacman.j] == 6) {
         score += 15;
     }
     if (Pacman.i == X_Boost && Pacman.j == Y_Boost) {
@@ -439,25 +425,24 @@ function UpdatePosition() {
 
     if ((Pacman.i == X_monster1 && Pacman.j == Y_monster1) || (Pacman.i == X_monster2 && Pacman.j == Y_monster2) || (Pacman.i == X_monster3 && Pacman.j == Y_monster3)) {
         lives--;
-        document.getElementById("lbllife").value = numOfLife;
-
+        document.getElementById("lbllife").value = lives;
         if (X_monster1 != -1 && Y_monster1 != -1) {
             board[X_monster1][Y_monster1] = 0;
             X_monster1 = 0;
             Y_monster1 = 0;
-            board[X_monster1][Y_monster1] = 6;
+            board[X_monster1][Y_monster1] = 9;
         }
         if (X_monster2 != -1 && Y_monster2 != -1) {
             board[X_monster2][Y_monster2] = 0;
             X_monster2 = 0;
             Y_monster2 = 15;
-            board[X_monster2][Y_monster2] = 7;
+            board[X_monster2][Y_monster2] = 10;
         }
         if (X_monster3 != -1 && Y_monster3 != -1) {
             board[X_monster3][Y_monster3] = 0;
             X_monster3 = 15;
             Y_monster3 = 0;
-            board[X_monster3][Y_monster3] = 8;
+            board[X_monster3][Y_monster3] = 11;
         }
         board[Pacman.i][Pacman.j] = 0;
         var newPos = findRandomEmptyCell(board);
@@ -473,7 +458,6 @@ function UpdatePosition() {
             keysDown[e.keyCode] = false;
         }, false);
     }
-
     board[Pacman.i][Pacman.j] = 2;
     var currentTime = new Date();
     time_elapsed = (currentTime - start_time) / 1000 - timechange;
@@ -515,40 +499,39 @@ function MonsterMove(monster, posX, posY) {
     }
     var minMove = Math.min(upMove, downMove, rightMove, leftMove);
     if (minMove == upMove) {
-        RelocatMon(gst, gstX, gstY - 1);
+        RelocatMon(monster, posX, posY - 1);
         return;
     }
     if (minMove == downMove) {
-        RelocatMon(gst, gstX, gstY + 1);
+        RelocatMon(monster, posX, posY + 1);
         return;
     }
     if (minMove == rightMove) {
-        RelocatMon(gst, gstX + 1, gstY);
+        RelocatMon(monster, posX + 1, posY);
         return;
     }
     if (minMove == leftMove) {
-        RelocatMon(gst, gstX - 1, gstY);
+        RelocatMon(monster, posX - 1, posY);
         return;
     }
-
 }
 
-function RelocatMon(m, x, y) {
-    if (m == 1) {
+function RelocatMon(monster, posX, posY) {
+    if (monster == 1) {
         board[X_monster1][Y_monster1] = 0;
-        X_monster1 = x;
-        Y_monster1 = y;
-        board[X_monster1][Y_monster1] = 6;
-    } else if (m == 2) {
+        X_monster1 = posX;
+        Y_monster1 = posY;
+        board[X_monster1][Y_monster1] = 9;
+    } else if (monster == 2) {
         board[X_monster2][Y_monster2] = 0;
-        X_monster2 = x;
-        Y_monster2 = y;
-        board[X_monster2][Y_monster2] = 7;
-    } else if (m == 3) {
+        X_monster2 = posX;
+        Y_monster2 = posY;
+        board[X_monster2][Y_monster2] = 10;
+    } else if (monster == 3) {
         board[X_monster3][Y_monster3] = 0;
-        X_monster3 = x;
-        Y_monster3 = y;
-        board[X_monster3][Y_monster3] = 8;
+        X_monster3 = posX;
+        Y_monster3 = posY;
+        board[X_monster3][Y_monster3] = 11;
     }
 }
 
@@ -558,6 +541,40 @@ function CalcDistance(posX, posY) {
     var XPow = Math.pow(X_Pac - posX, 2);
     var YPow = Math.pow(Y_Pac - posY, 2);
     return Math.sqrt(XPow + YPow);
+}
+
+function RandBoost() {
+    if ((X_Boost == -1 && Y_Boost == -1) || X_Boost == undefined || Y_Boost == undefined)
+        return;
+    var random = Math.random();
+    tmpX = X_Boost;
+    tmpY = Y_Boost;
+
+    // var up, down, ledt, right;
+    if (tmpX + 1 < 10 && (board(tmpX + 1, tmpY) != 4) && random <= 0.25) {
+        board[X_Boost][Y_Boost] = 0;
+        X_Boost = tmpX + 1;
+        board[X_Boost][Y_Boost] = 8;
+        return;
+    }
+    if (tmpX - 1 > -1 && (board(tmpX - 1, tmpY) != 4) && random <= 0.5) {
+        board[X_Boost][Y_Boost] = 0;
+        X_Boost = tmpX - 1;
+        board[X_Boost][Y_Boost] = 8;
+        return;
+    }
+    if (tmpY + 1 < 10 && (board(tmpX, tmpY + 1) != 4) && random <= 0.75) {
+        board[X_Boost][Y_Boost] = 0;
+        Y_Boost = tmpY + 1;
+        board[X_Boost][Y_Boost] = 8;
+        return;
+    }
+    if (tmpY - 1 > -1 && (board(tmpX, tmpY - 1) != 4) && random <= 1) {
+        board[X_Boost][Y_Boost] = 0;
+        Y_Boost = tmpY - 1;
+        board[X_Boost][Y_Boost] = 8;
+        return;
+    }
 }
 
 
@@ -599,10 +616,9 @@ function Finish_Game() {
         window.alert("You can do better!");
     }
     window.clearInterval(interval);
-    window.clearInterval(foodghoustinterval);
-    window.clearInterval(Ghoustinterval);
+    window.clearInterval(B_interval);
+    window.clearInterval(G_nterval);
 }
-
 
 // var Monster1_img = document.getElementById("M1")
 // var Monster2_img = document.getElementById("M2")
