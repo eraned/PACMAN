@@ -175,7 +175,7 @@ function RandomColor() {
 function Start_Game() {
     Show_Tab('game_page2');
     Game_song.loop = true;
-    Game_song.pause();
+    Game_song.play();
     Start();
     Draw();
 }
@@ -293,39 +293,36 @@ function Draw(Pos) {
             if (board[i][j] === 2) {
                 context.beginPath();
                 if (Pos == 1) {
-                    context.arc(center.x, center.y, 20, 1.35 * Math.PI, 1.65 * Math.PI, true);//up pacMan
+                    context.arc(center.x, center.y, 18, 1.35 * Math.PI, 1.65 * Math.PI, true);//up pacMan
                 } else if (Pos == 2) {
-                    context.arc(center.x, center.y, 20, 0.35 * Math.PI, 0.65 * Math.PI, true);//down pacMan
+                    context.arc(center.x, center.y, 18, 0.35 * Math.PI, 0.65 * Math.PI, true);//down pacMan
                 } else if (Pos == 3) {
-                    context.arc(center.x, center.y, 20, 1.15 * Math.PI, 0.85 * Math.PI); // left pacMan
+                    context.arc(center.x, center.y, 18, 1.15 * Math.PI, 0.85 * Math.PI); // left pacMan
                 } else {
-                    context.arc(center.x, center.y, 20, 0.15 * Math.PI, 1.85 * Math.PI); // right pacMan
+                    context.arc(center.x, center.y, 18, 0.15 * Math.PI, 1.85 * Math.PI); // right pacMan
                 }
                 context.lineTo(center.x, center.y);
                 context.fillStyle = pac_color; //color
                 context.fill();
                 context.beginPath();
                 if (Pos == 1) {
-                    context.arc(center.x + 8, center.y - 4, 3, 0, 2 * Math.PI); // up eye
+                    context.arc(center.x + 8, center.y - 4, 2, 0, 2 * Math.PI); // up eye
                 } else if (Pos == 2) {
-                    context.arc(center.x + 8, center.y + 4, 3, 0, 2 * Math.PI); // down eye
+                    context.arc(center.x + 8, center.y + 4, 2, 0, 2 * Math.PI); // down eye
                 } else if (Pos == 3) {
-                    context.arc(center.x - 4, center.y - 8, 3, 0, 2 * Math.PI); // left eye
+                    context.arc(center.x - 4, center.y - 8, 2, 0, 2 * Math.PI); // left eye
                 } else {
-                    context.arc(center.x + 4, center.y - 8, 3, 0, 2 * Math.PI); // right eye
+                    context.arc(center.x + 4, center.y - 8, 2, 0, 2 * Math.PI); // right eye
                 }
                 context.fillStyle = "black"; //color
                 context.fill();
-            } else if (board[i][j] === 0) {
-                context.beginPath();
-                context.rect(center.x - 20, center.y - 20, 35, 35);
-                context.fillStyle = "orange"; //color
-                context.fill();
-            } else if (board[i][j] === 4) {
+            }
+            else if (board[i][j] === 4) {
                 context.beginPath();
                 context.rect(center.x - 20, center.y - 20, 35, 35);
                 context.fillStyle = "black"; //color
                 context.fill();
+                context.strokeRect(center.x - 20, center.y - 20, 35, 35);
             } else if (board[i][j] == 5) {
                 var Monster1_img = document.getElementById("M1")
                 context.drawImage(Monster1_img, 35 * X_monster1, 35 * Y_monster1, 35, 35);

@@ -1,15 +1,13 @@
-/*body {*/
-/*width: 100%;*/
-/*height: auto;*/
-/*overflow: auto;*/
-/*overflow-x: hidden;*/
-/*overflow-y: hidden;*/
-/*}*/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
 header {
     position: fixed;
     overflow: hidden;
-    margin: 0;
+    /*margin: 0;*/
     width: 100%;
     text-align: center;
 }
@@ -33,12 +31,13 @@ header {
     background-color: orangered;
     margin: 0;
     padding: 0;
-    /*overflow: hidden;*/
+    overflow: hidden;
     height: 50px;
 }
 
 #Menu li {
     float: left;
+    margin-left: 2%;
 }
 
 #Menu li a {
@@ -54,13 +53,10 @@ header {
 }
 
 .Stage {
-    /*width: 100%;*/
+    width: 100%;
     /*margin-right: auto;*/
     /*margin-left: auto;*/
-    width: 100%;
     height: auto;
-    margin-right: auto;
-    margin-left: auto;
     display: block;
     font-family: 'Wendy One', sans-serif;
     font-size: 3em;
@@ -75,7 +71,20 @@ header {
 
 
 #content {
-
+    width: 100%;
+    height: auto;
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    display: block;
+    font-family: 'Wendy One', sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: -2px;
+    color: #fff;
+    background: -webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: -o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: -moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
 }
 
 
