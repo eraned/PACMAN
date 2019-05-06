@@ -208,29 +208,29 @@ function Start() {
                     var tmp_rand = Math.random();
                     var tmp = food_remain;
                     if (tmp_rand < 0.6 && color_5P > 0) {
-                        board[i][j] = 5;
+                        board[i][j] = 8;
                         food_remain--;
                         color_5P--;
                     } else if (tmp_rand > 0.6 && tmp_rand < 0.9 && color_15P > 0) {
-                        board[i][j] = 6;
+                        board[i][j] = 9;
                         food_remain--;
                         color_15P--;
                     } else if (color_25P > 0) {
-                        board[i][j] = 7;
+                        board[i][j] = 10;
                         food_remain--;
                         color_25P--;
                     }
                     if (food_remain == tmp) {
                         if (color_25P > 0) {
-                            board[i][j] = 7;
+                            board[i][j] = 10;
                             food_remain--;
                             color_25P--;
                         } else if (color_15P > 0) {
-                            board[i][j] = 6;
+                            board[i][j] = 9;
                             food_remain--;
                             color_15P--;
                         } else {
-                            board[i][j] = 5;
+                            board[i][j] = 8;
                             food_remain--;
                             color_5P--;
                         }
@@ -318,13 +318,13 @@ function Draw(Pos) {
                 context.fill();
             } else if (board[i][j] === 0) {
                 context.beginPath();
-                context.rect(center.x - 30, center.y - 30, 60, 60);
-                context.fillStyle = "white"; //color
+                context.rect(center.x - 20, center.y - 20, 35, 35);
+                context.fillStyle = "orange"; //color
                 context.fill();
             } else if (board[i][j] === 4) {
                 context.beginPath();
-                context.rect(center.x - 35, center.y - 35, 35, 35);
-                context.fillStyle = "blue"; //color
+                context.rect(center.x - 20, center.y - 20, 35, 35);
+                context.fillStyle = "black"; //color
                 context.fill();
             } else if (board[i][j] == 5) {
                 var Monster1_img = document.getElementById("M1")
