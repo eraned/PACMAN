@@ -21,7 +21,6 @@ var Key_left;
 var Key_right;
 var lives;
 var Max_points;
-// var verdict;
 var B_interval;
 var M_interval;
 var X_monster1 = 0;
@@ -85,35 +84,31 @@ function Show_Tab(id) {
     Current.style.display = "block";
 }
 
+//tofix!!!!
 function ClearAll() {
-    // document.getElementById('BallsOption').checked = false;
-    // document.getElementById('TimeOption').checked = false;
-    // document.getElementById('MonsterOption').checked = false;
-    // document.getElementById('ColorOption').attr("value","white");
 
-    // // let Rand_Balls_num = Math.floor(Math.random() * (5));
-    // $('input:radio[name=BallsOption]').attr("checked",false);
-    // $('input:radio[name=TimeOption]').attr("checked",false);
-    // $('input:radio[name=MonsterOption]').attr("checked",false);
-    //
-    // // let Rand_Game_time = Math.floor(Math.random() * (3));
-    // // let Rand_Monster_num = Math.floor(Math.random() * (3));
-    //
-    // $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
-    // $("#5P_color").attr("value", RandomColor());
-    // $("#15P_color").attr("value", RandomColor());
-    // $("#25P_color").attr("value", RandomColor());
-    // $('input:radio[name=TimeOption]')[Rand_Game_time].checked = true;
-    // let Rand_Monster_num = Math.floor(Math.random() * (3));
-    // $('input:radio[name=MonsterOption]')[Rand_Monster_num].checked = true;
+    // $('input[name="BallsOption"]').attr('checked', false);
+    // $('input[name="TimeOption"]').attr('checked', false);
+    // $('input[name="MonsterOption"]').attr('checked', false);
 
-    $("input:radio[name=BallsOption]").prop('checked', false);
-    $("input:radio[name=TimeOption]").prop('checked', false);
-    $("input:radio[name=MonsterOption]").prop('checked', false);
-    $("#5P_color").attr("value", "#009933");
-    $("#15P_color").attr("value", "#0000cc");
-    $("#25P_color").attr("value", "#ff0000");
+    // $('input[name="BallsOption"]').prop('checked', false);
+    // $('input[name="TimeOption"]').prop('checked', false);
+    // $('input[name="MonsterOption"]').prop('checked', false);
 
+    // $("[name=BallsOption]").removeAttr("checked");
+    // $("[name=TimeOption]").removeAttr("checked");
+    // $("[name=MonsterOption]").removeAttr("checked");
+
+    // $("#5P_color").attr("value", "#009933");
+    // $("#15P_color").attr("value", "#0000cc");
+    // $("#25P_color").attr("value", "#ff0000");
+
+    // $("input:radio[name=BallsOption]").prop('checked', false);
+    // $("input:radio[name=TimeOption]").prop('checked', false);
+    // $("input:radio[name=MonsterOption]").prop('checked', false);
+    // $("#5P_color").attr("value", "#009933");
+    // $("#15P_color").attr("value", "#0000cc");
+    // $("#25P_color").attr("value", "#ff0000");
 
 }
 
@@ -133,15 +128,6 @@ function New_Game() {
     color_15P = Math.floor(0.3 * Balls_num);
     color_25P = Math.floor(0.1 * Balls_num);
     Max_points = 50 + 5 * color_5P + 15 * color_15P + 25 * color_25P;
-
-
-    console.log(Key_up);
-    console.log(Key_down);
-    console.log(Key_left);
-    console.log(Key_right);
-
-
-
     if (Monster_num == 3) {
         X_monster1 = 0;
         Y_monster1 = 0;
@@ -629,18 +615,17 @@ function UpdateLives() {
     document.getElementById("lblLive").value = lives;
 }
 
-
 function GetKeyPressed() {
-    if (keysDown['ArrowUp']) {
+    if (keysDown[Key_up]) {
         return 1;
     }
-    if (keysDown['ArrowDown']) {
+    if (keysDown[Key_down]) {
         return 2;
     }
-    if (keysDown['ArrowLeft']) {
+    if (keysDown[Key_left]) {
         return 3;
     }
-    if (keysDown['ArrowRight']) {
+    if (keysDown[Key_right]) {
         return 4;
     }
 }
