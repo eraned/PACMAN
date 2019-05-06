@@ -92,15 +92,32 @@ function ClearAll() {
     // document.getElementById('MonsterOption').checked = false;
     // document.getElementById('ColorOption').attr("value","white");
 
-    // let Rand_Balls_num = Math.floor(Math.random() * (5));
-    $('input:radio[name=BallsOption]').attr("checked",false);
-    $('input:radio[name=TimeOption]').attr("checked",false);
-    $('input:radio[name=MonsterOption]').attr("checked",false);
+    // // let Rand_Balls_num = Math.floor(Math.random() * (5));
+    // $('input:radio[name=BallsOption]').attr("checked",false);
+    // $('input:radio[name=TimeOption]').attr("checked",false);
+    // $('input:radio[name=MonsterOption]').attr("checked",false);
+    //
+    // // let Rand_Game_time = Math.floor(Math.random() * (3));
+    // // let Rand_Monster_num = Math.floor(Math.random() * (3));
+    //
+    // $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
+    // $("#5P_color").attr("value", RandomColor());
+    // $("#15P_color").attr("value", RandomColor());
+    // $("#25P_color").attr("value", RandomColor());
+    // $('input:radio[name=TimeOption]')[Rand_Game_time].checked = true;
+    // let Rand_Monster_num = Math.floor(Math.random() * (3));
+    // $('input:radio[name=MonsterOption]')[Rand_Monster_num].checked = true;
+
+    $("input:radio[name=BallsOption]").prop('checked', false);
+    $("input:radio[name=TimeOption]").prop('checked', false);
+    $("input:radio[name=MonsterOption]").prop('checked', false);
     $("#5P_color").attr("value", "#009933");
     $("#15P_color").attr("value", "#0000cc");
     $("#25P_color").attr("value","#ff0000");
-    // let Rand_Game_time = Math.floor(Math.random() * (3));
-    // let Rand_Monster_num = Math.floor(Math.random() * (3));
+
+
+
+
 }
 
 
@@ -115,9 +132,14 @@ function New_Game() {
 
     // $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
     // $("#5P_color").attr("value", RandomColor());
-    Balls_num = document.querySelector('input[name="BallsOption"]:checked').value;
-    Game_time = document.querySelector('input[name="TimeOption"]:checked').value;
-    Monster_num = document.querySelector('input[name="MonsterOption"]:checked').value;
+    // var radio_selected = $('input[name=options]:checked', '#f1').val()
+
+    // Balls_num = document.querySelector('input[name="BallsOption"]:checked').value;
+    // Game_time = document.querySelector('input[name="TimeOption"]:checked').value;
+    // Monster_num = document.querySelector('input[name="MonsterOption"]:checked').value;
+    Balls_num = $("input[name=BallsOption]:checked").val();
+    Game_time = $("input[name=TimeOption]:checked").val();
+    Monster_num = $("input[name=MonsterOption]:checked").val();
     color_5P = Math.floor(0.6 * Balls_num);
     color_15P = Math.floor(0.3 * Balls_num);
     color_25P = Math.floor(0.1 * Balls_num);
@@ -152,7 +174,6 @@ function New_Game() {
         X_monster3 = -1;
         Y_monster3 = -1;
     }
-    // Start_Game();
 }
 
 function myKeyPress(e, event) {
@@ -484,11 +505,14 @@ function UpdatePosition() {
     if (score >= 20 && time_elapsed <= 10) {
         pac_color = "green";
     }
-    if (time_elapsed >= Game_time || score == Max_points || lives == 0) {
+    if (time_elapsed >= Game_time || score == Max_points) {
         Finish_Game();
-    } else {
-        Draw(currPos);
+    } else if (lives == 0) {
+        Finish_Game();
     }
+    else
+        Draw(currPos);
+
 }
 
 function UpdateMonsters() {
@@ -637,14 +661,18 @@ function Finish_Game() {
 
     if (lives == 0) {
         $("#lblVerdict").attr("value","You Lost!" );
+        $('#Loozer').css({'display' : 'block'});
     } else if (score >= 150) {
         $("#lblVerdict").attr("value","We Have a Winner!!!" );
+        $('#Winner').css({'display' : 'block'});
+
     } else {
-        $("#lblVerdict").attr("value","You can do better");
+        $("#lblVerdict").attr("d","You can do better");
+        $('#Better').css({'display' : 'block'});
     }
     window.clearInterval(interval);
     window.clearInterval(B_interval);
-    window.clearInterval(G_nterval);
+    window.clearInterval(G_interval);
     ClearAll();
 }
 
