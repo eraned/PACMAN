@@ -42,7 +42,7 @@
                     <h1> test home </h1>
                     <br/>
                     <br/>
-                    <button onclick="Show_Tab('game_page1')" type="button" class="btn btn-primary btn-lg">Go to the Game
+                    <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">Go to the Game
                     </button>
                     <br/>
                     <br/>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-6">
-                            <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">START GAME</button>
+                            <button onclick="Start_Game()" type="button" class="btn btn-primary btn-lg">START GAME</button>
                             <button onclick="RandomSettings()" type="button" class="btn btn-primary btn-lg">RANDOM SETTINGS</button>
                         </div>
                     </div>
@@ -218,15 +218,10 @@
                         <input class="form-control" id="lblLive" type="text" readonly="readonly"/>
                         <button onclick="Finish_Game()" type="button" class="btn btn-primary btn-lg">test for page 3</button>
                         <br/>
-                        <!--<script>-->
-                            <!--$(document).ready(function () {-->
-                                <!--Start_Game();-->
-                            <!--});-->
-                        <!--</script>-->
                     </div>
                     <div class="col-lg-8">
                         <br/>
-                        <canvas style="margin-left: 30%" id="canvas" height="500" width="500"></canvas>
+                        <canvas style="margin-left: 30%" id="canvas" height="490" width="490"></canvas>
                     </div>
                 </div>
             </sectio>

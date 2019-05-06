@@ -91,20 +91,26 @@ function Show_Tab(id) {
 
 ////<-- game -->////
 function New_Game() {
+    Show_Tab('game_page1');
     window.clearInterval(interval);
     window.clearInterval(B_interval);
     window.clearInterval(M_interval);
     lives = 3;
-    // document.getElementById("lblLive").value = lives;
     UpdateLives();
     Balls_num = document.querySelector('input[name="BallsOption"]:checked').value;
     Game_time = document.querySelector('input[name="TimeOption"]:checked').value;
     Monster_num = document.querySelector('input[name="MonsterOption"]:checked').value;
-    // Balls_num = $('input[name="BallsOption"]:checked').val();
     color_5P = Math.floor(0.6 * Balls_num);
     color_15P = Math.floor(0.3 * Balls_num);
     color_25P = Math.floor(0.1 * Balls_num);
     Max_points = 50 + 5 * color_5P + 15 * color_15P + 25 * color_25P;
+
+
+    ///get keys hereee
+
+
+
+
 
     if (Monster_num == 3) {
         X_monster1 = 0;
@@ -128,7 +134,7 @@ function New_Game() {
         X_monster3 = -1;
         Y_monster3 = -1;
     }
-    Start_Game();
+    // Start_Game();
 }
 
 function myKeyPress(e, event) {
@@ -190,10 +196,9 @@ function Start() {
     var pacman_remain = 1;
     start_time = new Date();
     time_elapsed = 0;
-    for (var i = 0; i < 15; i++) {
+    for (var i = 0; i < 14; i++) {
         board[i] = new Array();
-        //put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
-        for (var j = 0; j < 15; j++) {
+        for (var j = 0; j < 14; j++) {
             if (((i == 1 || i == 12) && (j == 2 || j == 3 || j == 4 || j == 9 || j == 10)) ||
                 ((i == 2 || i == 11) && (j == 0 || j == 4 || j == 5 || j == 6 || j == 9 || j == 10 || j == 11)) ||
                 ((i == 3 || i == 10) && (j == 6 || j == 11)) ||
@@ -269,15 +274,15 @@ function SetNewElemntsPos() {
     var tmpboost = findRandomEmptyCell(board);
     X_Boost = tmpboost[0];
     Y_Boost = tmpboost[1];
-    board[tmpboost[0]][tmpboost[1]] = 8;
+    board[tmpboost[0]][tmpboost[1]] = 11;
     var tmplife = findRandomEmptyCell(board);
     X_Life = tmplife[0];
     Y_Life = tmplife[1];
-    board[tmplife[0]][tmplife[1]] = 13;
+    board[tmplife[0]][tmplife[1]] = 12;
     var tmpmush = findRandomEmptyCell(board);
     X_Mushroom = tmpmush[0];
     Y_Mushroom = tmpmush[1];
-    board[tmpmush[0]][tmpmush[1]] = 12;
+    board[tmpmush[0]][tmpmush[1]] = 13;
 }
 
 
@@ -285,8 +290,8 @@ function Draw(Pos) {
     context.clearRect(0, 0, canvas.width, canvas.height); //clean board
     lblScore.value = score;
     lblTime.value = time_elapsed;
-    for (var i = 0; i < 15; i++) {
-        for (var j = 0; j < 15; j++) {
+    for (var i = 0; i < 14; i++) {
+        for (var j = 0; j < 14; j++) {
             var center = new Object();
             center.x = i * 35 + 18;
             center.y = j * 35 + 18;
@@ -371,7 +376,7 @@ function UpdatePosition() {
         currPos = x;
     }
     if (x === 2) {
-        if (Pacman.j < 14 && board[Pacman.i][Pacman.j + 1] !== 4) {
+        if (Pacman.j < 13 && board[Pacman.i][Pacman.j + 1] !== 4) {
             Pacman.j++;
         }
         currPos = x;
@@ -383,7 +388,7 @@ function UpdatePosition() {
         currPos = x;
     }
     if (x === 4) {
-        if (Pacman.i < 14 && board[Pacman.i + 1][Pacman.j] !== 4) {
+        if (Pacman.i < 13 && board[Pacman.i + 1][Pacman.j] !== 4) {
             Pacman.i++;
         }
         currPos = x;
@@ -483,13 +488,13 @@ function MonsterMove(monster, posX, posY) {
     var leftMove = 1000;
     var downMove = 1000;
     var upMove = 1000;
-    if (posX + 1 < 20 && board[posX + 1][posY] != 4) {
+    if (posX + 1 < 14 && board[posX + 1][posY] != 4) {
         rightMove = CalcDistance(posX + 1, posY);
     }
     if (posX - 1 > -1 && board[posX - 1][posY] != 4) {
         leftMove = CalcDistance(posX - 1, posY);
     }
-    if (posY + 1 < 20 && board[posX][posY + 1] != 4) {
+    if (posY + 1 < 14 && board[posX][posY + 1] != 4) {
         downMove = CalcDistance(posX, posY + 1);
     }
     if (posY - 1 > -1 && board[posX][posY - 1] != 4) {
@@ -549,7 +554,7 @@ function RandBoost() {
     tmpY = Y_Boost;
 
     // var up, down, ledt, right;
-    if (tmpX + 1 < 10 && board[tmpX + 1][tmpY] != 4 && random <= 0.25) {
+    if (tmpX + 1 < 14 && board[tmpX + 1][tmpY] != 4 && random <= 0.25) {
         board[X_Boost][Y_Boost] = 0;
         X_Boost = tmpX + 1;
         board[X_Boost][Y_Boost] = 11;
@@ -561,7 +566,7 @@ function RandBoost() {
         board[X_Boost][Y_Boost] = 11;
         return;
     }
-    if (tmpY + 1 < 10 && board[tmpX][tmpY + 1] != 4 && random <= 0.75) {
+    if (tmpY + 1 < 14 && board[tmpX][tmpY + 1] != 4 && random <= 0.75) {
         board[X_Boost][Y_Boost] = 0;
         Y_Boost = tmpY + 1;
         board[X_Boost][Y_Boost] = 11;
@@ -596,11 +601,11 @@ function GetKeyPressed() {
 }
 
 function findRandomEmptyCell(board) {
-    var i = Math.floor((Math.random() * 9) + 1);
-    var j = Math.floor((Math.random() * 9) + 1);
+    var i = Math.floor((Math.random() * 13) + 1);
+    var j = Math.floor((Math.random() * 13) + 1);
     while (board[i][j] !== 0) {
-        i = Math.floor((Math.random() * 9) + 1);
-        j = Math.floor((Math.random() * 9) + 1);
+        i = Math.floor((Math.random() * 13) + 1);
+        j = Math.floor((Math.random() * 13) + 1);
     }
     return [i, j];
 }
@@ -610,10 +615,17 @@ function Finish_Game() {
     audio.pause();
     audio.load();
     if (lives == 0) {
+        /////
+
+
         window.alert("Game Over!! " + numOfLife + " Life left");
     } else if (score >= 150) {
+        ////
         window.alert("We Have a Winner!");
     } else {
+        /////
+
+
         window.alert("You can do better!");
     }
     window.clearInterval(interval);
