@@ -128,6 +128,7 @@ function New_Game() {
     color_15P = Math.floor(0.3 * Balls_num);
     color_25P = Math.floor(0.1 * Balls_num);
     Max_points = 50 + 5 * color_5P + 15 * color_15P + 25 * color_25P;
+
     if (Monster_num == 3) {
         X_monster1 = 0;
         Y_monster1 = 0;
