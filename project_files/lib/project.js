@@ -87,10 +87,20 @@ function Show_Tab(id) {
 }
 
 function ClearAll() {
-    document.getElementById('BallsOption').checked = false;
-    document.getElementById('TimeOption').checked = false;
-    document.getElementById('MonsterOption').checked = false;
-    document.getElementById('ColorOption').attr("value","white");
+    // document.getElementById('BallsOption').checked = false;
+    // document.getElementById('TimeOption').checked = false;
+    // document.getElementById('MonsterOption').checked = false;
+    // document.getElementById('ColorOption').attr("value","white");
+
+    // let Rand_Balls_num = Math.floor(Math.random() * (5));
+    $('input:radio[name=BallsOption]').attr("checked",false);
+    $('input:radio[name=TimeOption]').attr("checked",false);
+    $('input:radio[name=MonsterOption]').attr("checked",false);
+    $("#5P_color").attr("value", "#009933");
+    $("#15P_color").attr("value", "#0000cc");
+    $("#25P_color").attr("value","#ff0000");
+    // let Rand_Game_time = Math.floor(Math.random() * (3));
+    // let Rand_Monster_num = Math.floor(Math.random() * (3));
 }
 
 
@@ -102,6 +112,9 @@ function New_Game() {
     window.clearInterval(M_interval);
     lives = 3;
     UpdateLives();
+
+    // $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
+    // $("#5P_color").attr("value", RandomColor());
     Balls_num = document.querySelector('input[name="BallsOption"]:checked').value;
     Game_time = document.querySelector('input[name="TimeOption"]:checked').value;
     Monster_num = document.querySelector('input[name="MonsterOption"]:checked').value;
@@ -442,12 +455,12 @@ function UpdatePosition() {
         if (X_monster2 != -1 && Y_monster2 != -1) {
             board[X_monster2][Y_monster2] = 0;
             X_monster2 = 0;
-            Y_monster2 = 15;
+            Y_monster2 = 13;
             board[X_monster2][Y_monster2] = 6;
         }
         if (X_monster3 != -1 && Y_monster3 != -1) {
             board[X_monster3][Y_monster3] = 0;
-            X_monster3 = 15;
+            X_monster3 = 13;
             Y_monster3 = 0;
             board[X_monster3][Y_monster3] = 7;
         }
@@ -616,21 +629,18 @@ function findRandomEmptyCell(board) {
 
 function Finish_Game() {
     Show_Tab('game_page3');
-    audio.pause();
-    audio.load();
+    Game_song.pause();
+    Game_song.load();
+    $("#lblNameFinish").attr("value", "test_name");
+    $("#lblScoreFinish").attr("value", score);
+    $("#lblLiveFinish").attr("value",lives );
+
     if (lives == 0) {
-        /////
-
-
-        window.alert("Game Over!! " + numOfLife + " Life left");
+        $("#lblVerdict").attr("value","You Lost!" );
     } else if (score >= 150) {
-        ////
-        window.alert("We Have a Winner!");
+        $("#lblVerdict").attr("value","We Have a Winner!!!" );
     } else {
-        /////
-
-
-        window.alert("You can do better!");
+        $("#lblVerdict").attr("value","You can do better");
     }
     window.clearInterval(interval);
     window.clearInterval(B_interval);

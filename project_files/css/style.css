@@ -203,12 +203,17 @@ header {
 
 }
 
-section{
+section {
     margin-left: 5%;
 }
 
-canvas{
+canvas {
     border: 3px solid black;
+}
+
+.finishImages {
+    display: none;
+    margin-left: 30%;
 }
 
 

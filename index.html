@@ -230,18 +230,27 @@
                 <br/>
                 <br/>
                 <h1 style="display: block;margin-left: 40%;">GAME FINISHED!</h1>
-                <div class="col-lg-4">
-                    <label >PLAYER NAME:</label>
-                    <input class="form-control" type="text" readonly="readonly"/>
-                    <label >YOUR SCORE:</label>
-                    <input class="form-control"  type="text"/>
-                    <label for="lblResult">VERDICT:</label>
-                    <input class="form-control" id="lblResult" type="text"/>
-                    <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
-                    <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">BACK HOME</button>
+                <div class="row" style="justify-content: center; align-items: center">
+                    <div class="col-lg-4">
+                        <label for="lblNameFinish">PLAYER NAME:</label>
+                        <input class="form-control" type="text" id="lblNameFinish" readonly="readonly" value=""/>
+                        <label for="lblScoreFinish">YOUR SCORE:</label>
+                        <input class="form-control" type="text" id="lblScoreFinish" readonly="readonly" value=""/>
+                        <label for="lblLiveFinish">LIVES:</label>
+                        <input class="form-control" type="text" id="lblLiveFinish" readonly="readonly" value=""/>
+                        <label for="lblVerdict">VERDICT:</label>
+                        <input class="form-control" type="text" id="lblVerdict" readonly="readonly" value=""/>
+                        <button onclick="New_Game()" type="button" class="btn btn-primary btn-lg">NEW GAME</button>
+                        <button onclick="Show_Tab('Home')" type="button" class="btn btn-primary btn-lg">BACK HOME</button>
+                        <br/>
+                    </div>
+                    <div class="col-lg-8">
+                        <img id="Winner" class="finishImages" width="256" height="256" src="project_files/images/winner.png">
+                        <img id="Loozer" class="finishImages" width="256" height="256"  src="project_files/images/loozer.png">
+                        <img id="Better" class="finishImages" width="256" height="256"  src="project_files/images/better.png">
+                    </div>
                     <br/>
                 </div>
-                <br/>
             </section>
         </div>
     </div>
