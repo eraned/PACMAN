@@ -316,8 +316,7 @@ function Draw(Pos) {
                 }
                 context.fillStyle = "black"; //color
                 context.fill();
-            }
-            else if (board[i][j] === 4) {
+            } else if (board[i][j] === 4) {
                 context.beginPath();
                 context.rect(center.x - 20, center.y - 20, 35, 35);
                 context.fillStyle = "black"; //color
@@ -372,7 +371,7 @@ function UpdatePosition() {
         currPos = x;
     }
     if (x === 2) {
-        if (Pacman.j < 9 && board[Pacman.i][Pacman.j + 1] !== 4) {
+        if (Pacman.j < 14 && board[Pacman.i][Pacman.j + 1] !== 4) {
             Pacman.j++;
         }
         currPos = x;
@@ -384,7 +383,7 @@ function UpdatePosition() {
         currPos = x;
     }
     if (x === 4) {
-        if (Pacman.i < 9 && board[Pacman.i + 1][Pacman.j] !== 4) {
+        if (Pacman.i < 14 && board[Pacman.i + 1][Pacman.j] !== 4) {
             Pacman.i++;
         }
         currPos = x;
