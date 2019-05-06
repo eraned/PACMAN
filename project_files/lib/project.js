@@ -30,8 +30,6 @@ var X_monster2 = 0;
 var Y_monster2 = 9;
 var X_monster3 = 9;
 var Y_monster3 = 0;
-// var X_Pac;
-// var Y_Pac;
 var X_Life;
 var Y_Life;
 var X_Mushroom;
@@ -86,6 +84,13 @@ function Show_Tab(id) {
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
+}
+
+function ClearAll() {
+    document.getElementById('BallsOption').checked = false;
+    document.getElementById('TimeOption').checked = false;
+    document.getElementById('MonsterOption').checked = false;
+    document.getElementById('ColorOption').attr("value","white");
 }
 
 
@@ -167,6 +172,7 @@ function RandomSettings() {
     $('input:radio[name=TimeOption]')[Rand_Game_time].checked = true;
     let Rand_Monster_num = Math.floor(Math.random() * (3));
     $('input:radio[name=MonsterOption]')[Rand_Monster_num].checked = true;
+    New_Game();
 }
 
 function RandomColor() {
@@ -298,26 +304,26 @@ function Draw(Pos) {
             if (board[i][j] === 2) {
                 context.beginPath();
                 if (Pos == 1) {
-                    context.arc(center.x, center.y, 18, 1.35 * Math.PI, 1.65 * Math.PI, true);//up pacMan
+                    context.arc(center.x, center.y, 18, 1.35 * Math.PI, 1.65 * Math.PI, true);
                 } else if (Pos == 2) {
-                    context.arc(center.x, center.y, 18, 0.35 * Math.PI, 0.65 * Math.PI, true);//down pacMan
+                    context.arc(center.x, center.y, 18, 0.35 * Math.PI, 0.65 * Math.PI, true);
                 } else if (Pos == 3) {
-                    context.arc(center.x, center.y, 18, 1.15 * Math.PI, 0.85 * Math.PI); // left pacMan
+                    context.arc(center.x, center.y, 18, 1.15 * Math.PI, 0.85 * Math.PI);
                 } else {
-                    context.arc(center.x, center.y, 18, 0.15 * Math.PI, 1.85 * Math.PI); // right pacMan
+                    context.arc(center.x, center.y, 18, 0.15 * Math.PI, 1.85 * Math.PI);
                 }
                 context.lineTo(center.x, center.y);
                 context.fillStyle = pac_color; //color
                 context.fill();
                 context.beginPath();
                 if (Pos == 1) {
-                    context.arc(center.x + 8, center.y - 4, 2, 0, 2 * Math.PI); // up eye
+                    context.arc(center.x + 8, center.y - 4, 2, 0, 2 * Math.PI);
                 } else if (Pos == 2) {
-                    context.arc(center.x + 8, center.y + 4, 2, 0, 2 * Math.PI); // down eye
+                    context.arc(center.x + 8, center.y + 4, 2, 0, 2 * Math.PI);
                 } else if (Pos == 3) {
-                    context.arc(center.x - 4, center.y - 8, 2, 0, 2 * Math.PI); // left eye
+                    context.arc(center.x - 4, center.y - 8, 2, 0, 2 * Math.PI);
                 } else {
-                    context.arc(center.x + 4, center.y - 8, 2, 0, 2 * Math.PI); // right eye
+                    context.arc(center.x + 4, center.y - 8, 2, 0, 2 * Math.PI);
                 }
                 context.fillStyle = "black"; //color
                 context.fill();
@@ -338,18 +344,18 @@ function Draw(Pos) {
                 context.drawImage(Monster3_img, 35 * X_monster3, 35 * Y_monster3, 35, 35);
             } else if (board[i][j] == 8) {
                 context.beginPath();
-                context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("5P_color").value; //color
+                context.arc(center.x, center.y, 7, 0, 2 * Math.PI);
+                context.fillStyle = document.getElementById("5P_color").value;
                 context.fill();
             } else if (board[i][j] == 9) {
                 context.beginPath();
-                context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("15P_color").value; //color
+                context.arc(center.x, center.y, 7, 0, 2 * Math.PI);
+                context.fillStyle = document.getElementById("15P_color").value;
                 context.fill();
             } else if (board[i][j] == 10) {
                 context.beginPath();
-                context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
-                context.fillStyle = document.getElementById("25P_color").value; //color
+                context.arc(center.x, center.y, 7, 0, 2 * Math.PI);
+                context.fillStyle = document.getElementById("25P_color").value;
                 context.fill();
             } else if (board[i][j] == 11) {
                 var Boost_img = document.getElementById("Boost")
@@ -420,14 +426,12 @@ function UpdatePosition() {
         X_Life = -1;
         Y_Life = -1;
         lives++;
-        // document.getElementById("lbllife").value = lives;
         UpdateLives();
         board[Pacman.i][Pacman.j] = 2;
     }
 
     if ((Pacman.i == X_monster1 && Pacman.j == Y_monster1) || (Pacman.i == X_monster2 && Pacman.j == Y_monster2) || (Pacman.i == X_monster3 && Pacman.j == Y_monster3)) {
         lives--;
-        // document.getElementById("lbllife").value = lives;
         UpdateLives();
         if (X_monster1 != -1 && Y_monster1 != -1) {
             board[X_monster1][Y_monster1] = 0;
@@ -631,21 +635,6 @@ function Finish_Game() {
     window.clearInterval(interval);
     window.clearInterval(B_interval);
     window.clearInterval(G_nterval);
+    ClearAll();
 }
-
-// var Monster1_img = document.getElementById("M1")
-// var Monster2_img = document.getElementById("M2")
-// var Monster3_img = document.getElementById("M3")
-// var Pacman_img = document.getElementById("Pac")
-// var Mush_img = document.getElementById("Mush")
-// var Life_img = document.getElementById("Life")
-// var Boost_img = document.getElementById("Boost")
-//
-// context.drawImage(Monster1_img, 25 * xM1, 25 * yM1, 23, 23);
-// context.drawImage(Monster2_img, 25 * xM2, 25 * yM2, 23, 23);
-// context.drawImage(Monster3_img, 25 * xM3, 25 * yM3, 23, 23);
-// context.drawImage(Pacman_img, 25 * xMsPac, 25 * yMsPac, 23, 23);
-// context.drawImage(Mush_img, 25 * xCerry, 25 * yCherry, 23, 23);
-// context.drawImage(Life_img, 25 * xClock, 25 * yClock, 23, 23);
-// context.drawImage(Boost_img, 25 * xClock, 25 * yClock, 23, 23);
 
