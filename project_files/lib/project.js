@@ -15,13 +15,13 @@ var color_25P;
 var Balls_num;
 var Game_time;
 var Monster_num;
-var Key_up = 38;
-var Key_down = 40;
-var Key_left = 37;
-var Key_right = 39;
+var Key_up;
+var Key_down;
+var Key_left;
+var Key_right;
 var lives;
 var Max_points;
-var verdict;
+// var verdict;
 var B_interval;
 var M_interval;
 var X_monster1 = 0;
@@ -80,7 +80,6 @@ function Show_Tab(id) {
     var Game_tab3 = document.getElementById('game_page3');
     Game_tab3.style.display = "none";
 
-
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
@@ -113,9 +112,7 @@ function ClearAll() {
     $("input:radio[name=MonsterOption]").prop('checked', false);
     $("#5P_color").attr("value", "#009933");
     $("#15P_color").attr("value", "#0000cc");
-    $("#25P_color").attr("value","#ff0000");
-
-
+    $("#25P_color").attr("value", "#ff0000");
 
 
 }
@@ -129,14 +126,6 @@ function New_Game() {
     window.clearInterval(M_interval);
     lives = 3;
     UpdateLives();
-
-    // $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
-    // $("#5P_color").attr("value", RandomColor());
-    // var radio_selected = $('input[name=options]:checked', '#f1').val()
-
-    // Balls_num = document.querySelector('input[name="BallsOption"]:checked').value;
-    // Game_time = document.querySelector('input[name="TimeOption"]:checked').value;
-    // Monster_num = document.querySelector('input[name="MonsterOption"]:checked').value;
     Balls_num = $("input[name=BallsOption]:checked").val();
     Game_time = $("input[name=TimeOption]:checked").val();
     Monster_num = $("input[name=MonsterOption]:checked").val();
@@ -146,9 +135,10 @@ function New_Game() {
     Max_points = 50 + 5 * color_5P + 15 * color_15P + 25 * color_25P;
 
 
-    ///get keys hereee
-
-
+    console.log(Key_up);
+    console.log(Key_down);
+    console.log(Key_left);
+    console.log(Key_right);
 
 
 
@@ -156,14 +146,14 @@ function New_Game() {
         X_monster1 = 0;
         Y_monster1 = 0;
         X_monster2 = 0;
-        Y_monster2 = 9;
-        X_monster3 = 9;
+        Y_monster2 = 13;
+        X_monster3 = 13;
         Y_monster3 = 0;
     } else if (Monster_num == 2) {
         X_monster1 = 0;
         Y_monster1 = 0;
         X_monster2 = 0;
-        Y_monster2 = 9;
+        Y_monster2 = 13;
         X_monster3 = -1;
         Y_monster3 = -1;
     } else if (Monster_num == 1) {
@@ -176,36 +166,50 @@ function New_Game() {
     }
 }
 
-function myKeyPress(e, event) {
-    var k = event.keyCode;
-    var type = e.id;
 
-    if (type == "UP") {
-        Key_up = k;
+function SetKeys(type, event) {
+    var tmp = type.id;
+    console.log(tmp);
+    if (tmp == "UP" && Key_up == undefined) {
+        Key_up = event.keyCode || event.which;
+        alert(String.fromCharCode(Key_up));
+        console.log(Key_up);
+    } else if (tmp == "DOWN" && Key_down == undefined) {
+        Key_down = event.keyCode || event.which;
+        alert(String.fromCharCode(Key_down));
+        console.log(Key_down);
+    } else if (tmp == "LEFT" && Key_left == undefined) {
+        Key_left = event.keyCode || event.which;
+        alert(String.fromCharCode(Key_left));
+        console.log(Key_left);
+    } else if (tmp == "RIGHT" && Key_right == undefined) {
+        Key_right = event.keyCode || event.which;
+        alert(String.fromCharCode(Key_right));
+        console.log(Key_right);
 
-    } else if (type == "DOWN") {
-        Key_down = k;
-
-    } else if (type == "LEFT") {
-
-        Key_left = k;
-    } else if (type == "RIGHT") {
-
-        Key_right = k;
     }
-    alert(String.fromCharCode(k));
 }
 
+
 function RandomSettings() {
-    let Rand_Balls_num = Math.floor(Math.random() * (5));
+    var Rand_Balls_num = Math.floor(Math.random() * (5));
     $('input:radio[name=BallsOption]')[Rand_Balls_num].checked = true;
     $("#5P_color").attr("value", RandomColor());
     $("#15P_color").attr("value", RandomColor());
     $("#25P_color").attr("value", RandomColor());
-    let Rand_Game_time = Math.floor(Math.random() * (3));
+    var Rand_Game_time = Math.floor(Math.random() * (3));
     $('input:radio[name=TimeOption]')[Rand_Game_time].checked = true;
     let Rand_Monster_num = Math.floor(Math.random() * (3));
     $('input:radio[name=MonsterOption]')[Rand_Monster_num].checked = true;
+
+    if (Key_up == undefined)
+        Key_up = 38;
+    if (Key_down == undefined)
+        Key_down = 40;
+    if (Key_left == undefined)
+        Key_left = 37;
+    if (Key_right == undefined)
+        Key_right = 39;
     New_Game();
 }
 
@@ -219,6 +223,7 @@ function RandomColor() {
 }
 
 function Start_Game() {
+    New_Game();
     Show_Tab('game_page2');
     Game_song.loop = true;
     Game_song.play();
@@ -509,8 +514,7 @@ function UpdatePosition() {
         Finish_Game();
     } else if (lives == 0) {
         Finish_Game();
-    }
-    else
+    } else
         Draw(currPos);
 
 }
@@ -657,18 +661,18 @@ function Finish_Game() {
     Game_song.load();
     $("#lblNameFinish").attr("value", "test_name");
     $("#lblScoreFinish").attr("value", score);
-    $("#lblLiveFinish").attr("value",lives );
+    $("#lblLiveFinish").attr("value", lives);
 
     if (lives == 0) {
-        $("#lblVerdict").attr("value","You Lost!" );
-        $('#Loozer').css({'display' : 'block'});
+        $("#lblVerdict").attr("value", "You Lost!");
+        $('#Loozer').css({'display': 'block'});
     } else if (score >= 150) {
-        $("#lblVerdict").attr("value","We Have a Winner!!!" );
-        $('#Winner').css({'display' : 'block'});
+        $("#lblVerdict").attr("value", "We Have a Winner!!!");
+        $('#Winner').css({'display': 'block'});
 
     } else {
-        $("#lblVerdict").attr("d","You can do better");
-        $('#Better').css({'display' : 'block'});
+        $("#lblVerdict").attr("d", "You can do better");
+        $('#Better').css({'display': 'block'});
     }
     window.clearInterval(interval);
     window.clearInterval(B_interval);
