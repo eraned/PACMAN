@@ -37,7 +37,7 @@ var X_Boost;
 var Y_Boost;
 var currPos = 4;
 var dictUser = new Map();
-var playerName = "";
+var playerName ;
 
 
 //FUNCTIONS
@@ -75,6 +75,7 @@ function Game_Register() {
     var newFirstName = document.getElementById('firstName').value;
     var newLastName = document.getElementById('lastName').value;
     var newPassword = document.getElementById('password').value;
+    playerName = newUserName;
     var ans = !dictUser.has(newUserName);
     if(newPassword === "" || newUserName === "" || newEmail==="" || newFirstName=== ""
     || newLastName === "" || newDate == ""){
@@ -88,9 +89,7 @@ function Game_Register() {
     }else if(ans){       
         dictUser.set(newUserName , newPassword) ; 
         alert('Register success');
-        document.getElementById("lblName").value = newUserName;
-        document.getElementById("lblName").value = newUserName;
-        Show_Tab("Home");
+        Show_Tab("Login");
     }else{
         alert('User name already exists');
     }   
@@ -106,13 +105,13 @@ function Game_Login() {
         alert('Login success');
         playerName = newUserName;
         document.getElementById("lblName").value = newUserName;
-        document.getElementById("lblName").value = newUserName;
+        document.getElementById("lblNameFinish").value = newUserName;
         Show_Tab("Home");
     }else if(newUserName == "a" && newPassword == "a"){
         alert('Login success');
         playerName = "a";
-        document.getElementById("lblName").value = playerName;
-        document.getElementById("lblNameFinish").value = playerName;
+        document.getElementById("lblName").value = newUserName;
+        document.getElementById("lblNameFinish").value = newUserName;
         Show_Tab("Home");
     }
 }
@@ -183,6 +182,7 @@ function Show_Tab(id) {
     var Game_tab3 = document.getElementById('game_page3');
     Game_tab3.style.display = "none";
 
+    
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
