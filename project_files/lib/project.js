@@ -75,6 +75,7 @@ function Game_Register() {
     var newFirstName = document.getElementById('firstName').value;
     var newLastName = document.getElementById('lastName').value;
     var newPassword = document.getElementById('password').value;
+
     var ans = !dictUser.has(newUserName);
     if(newPassword === "" || newUserName === "" || newEmail==="" || newFirstName=== ""
     || newLastName === "" || newDate == ""){
@@ -184,6 +185,7 @@ function Show_Tab(id) {
     var Game_tab3 = document.getElementById('game_page3');
     Game_tab3.style.display = "none";
 
+    
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
