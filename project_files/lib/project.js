@@ -88,6 +88,9 @@ function Game_Register() {
     }else if(ans){       
         dictUser.set(newUserName , newPassword) ; 
         alert('Register success');
+        playerName = newUserName;
+        document.getElementById("lblName").value = playerName;
+        document.getElementById("lblNameFinish").value = playerName;
         Show_Tab("Home");
     }else{
         alert('User name already exists');
@@ -104,7 +107,7 @@ function Game_Login() {
         alert('Login success');
         playerName = newUserName;
         document.getElementById("lblName").value = playerName;
-        document.getElementById("lblName").value = playerName;
+        document.getElementById("lblNameFinish").value = playerName;
         Show_Tab("Home");
     }else if(newUserName == "a" && newPassword == "a"){
         alert('Login success');
