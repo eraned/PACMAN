@@ -24,10 +24,9 @@
         </div>
         <div id="Menu">
             <ul>
-                <li><a href="#" onclick="Show_Tab('Home')">Home</a></li>
                 <li><a href="#" onclick="Show_Tab('Register')">Register</a></li>
                 <li><a href="#" onclick="Show_Tab('Login')">Login</a></li>
-                <li><a href="#" onclick="Show_Tab('About')">About</a></li>
+                <li><a href="#"  id="modal-btn">About</a></li>
             </ul>
         </div>
     </header>
@@ -35,6 +34,31 @@
 <div class="content">
     <div class="row">
         <div class="Stage">
+                <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <span class="close">&times;</span>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+
+                                    Eran Edri 302546056
+                                    <p></p> 
+                                    Omer rauchbach 204663041
+                                    <p></p>       
+                                    jQuery Plugin:
+                                    jquery-3.4.0.js
+                                    <p></p>
+                                    github link :
+                                    https://eraned.github.io/PACMAN/
+                            </p>
+                            <p></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button id="exit" class="button">ESC</button>
+                          </div>
+                        </div>
+                </div>
             <section id="Home">
                 <div>
                     <br/>
@@ -51,15 +75,37 @@
                 </div>
             </section>
             <section id="Register">
-                <br/>
-                <h1> test reg </h1>
-                <br/>
-                <br/>
-                <br/>
+                <div class="Register">                                      
+                    <h1> Sign Up</h1>                            
+                    <input type="text" name="username" id="username"  placeholder="Username"/>
+                    <input type="text" name="email" id="email" placeholder="Email"/>
+                    <input type="password" name="password" id="password" placeholder="Password"/>                         
+                    <input type="text" name="First-Name" id="firstName" placeholder="First Name"/>
+                    <input type="text" name="Last-Name" id="lastName" placeholder="Last Name"/>
+                    <input type="date" name="datepicker" id ="datepicker" placeholder="Date">
+                    <button onclick="Game_Register()" type="button" class="btn btn-primary btn-lg">Sign Up
+                        </button>  
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>                             
+                </div>                                                               
             </section>
             <section id="Login">
                 <br/>
-                <h1> test log </h1>
+                <div class="login" >
+                        <h1>Login</h1>
+                        <input type="text" name="username" id=login_userName placeholder="Username"/>
+                        <input type="password" name="password" id=login_password  placeholder="Password"/>
+                        <button onclick="Game_Login()" type="button" class="btn btn-primary btn-lg">login
+                            </button> 
+                </div>
                 <br/>
                 <br/>
                 <br/>
@@ -208,7 +254,7 @@
                     <div class="col-lg-4">
                         <br/>
                         <label for="lblName">PLAYER NAME:</label>
-                        <input class="form-control" id="lblName" type="text" readonly="readonly"/>
+                        <input class="form-control" value="" id="lblName" type="text" readonly="readonly"/>
                         <label for="lblScore">SCORE:</label>
                         <input class="form-control" id="lblScore" type="text"/>
                         <label for="lblTime">TIME:</label>
@@ -232,7 +278,7 @@
                 <div class="row" style="justify-content: center; align-items: center">
                     <div class="col-lg-4">
                         <label for="lblNameFinish">PLAYER NAME:</label>
-                        <input class="form-control" type="text" id="lblNameFinish" readonly="readonly" value=""/>
+                        <input class="form-control" value="" type="text" id="lblNameFinish" readonly="readonly" value=""/>
                         <label for="lblScoreFinish">YOUR SCORE:</label>
                         <input class="form-control" type="text" id="lblScoreFinish" readonly="readonly" value=""/>
                         <label for="lblLiveFinish">LIVES:</label>

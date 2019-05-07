@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -52,7 +52,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
-body {
+body {  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
@@ -61,6 +61,25 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+}
+
+.Register{
+
+  position: static;
+  margin: 20% auto;
+  height: 500px;
+  width: 400px;
+  background:fixed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.login{
+  position: static;
+  margin: 20% auto;
+  height: 300px;
+  width: 400px;
+  background:fixed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 [tabindex="-1"]:focus {
@@ -5727,15 +5746,15 @@ a.close.disabled {
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
   display: none;
-  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
   height: 100%;
-  overflow: hidden;
-  outline: 0;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-dialog {
@@ -5816,18 +5835,14 @@ a.close.disabled {
 }
 
 .modal-content {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  outline: 0;
+  margin: 5% auto;
+  width: 80%;
+  height: 100%;
+  font-family: sans-serif;
+  position: static;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
 }
 
 .modal-backdrop {
@@ -10036,4 +10051,37 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+h1
+{
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="submit"],
+input[type="password"]
+{
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #aaa;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+
+
 /*# sourceMappingURL=bootstrap.css.map */

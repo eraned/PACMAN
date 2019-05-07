@@ -36,30 +36,132 @@ var Y_Mushroom;
 var X_Boost;
 var Y_Boost;
 var currPos = 4;
+var dictUser = new Map();
+var playerName = "";
 
 
 //FUNCTIONS
 
-////<-- about -->////
-function Game_About() {
+/// Open
+function openModal() {
+    var modal = document.getElementById('my-modal');
+    modal.style.display = 'block';
+  }
+  
+  // Close
+  function closeModal() {
+    var modal = document.getElementById('my-modal');
+    modal.style.display = 'none';
+  }
+
+  function outsideClick(e) {
+    var modal = document.getElementById('my-modal');
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+  
 
 
-}
+// Close If Outside Click
+
 
 ////<-- user registraion -->////
 function Game_Register() {
-
-
+    
+    var newDate = document.getElementById('datepicker').value;
+    var newUserName = document.getElementById('username').value;
+    var newEmail = document.getElementById('email').value;
+    var newFirstName = document.getElementById('firstName').value;
+    var newLastName = document.getElementById('lastName').value;
+    var newPassword = document.getElementById('password').value;
+    var ans = !dictUser.has(newUserName);
+    if(newPassword === "" || newUserName === "" || newEmail==="" || newFirstName=== ""
+    || newLastName === "" || newDate == ""){
+        alert('All fields must be filled');
+    }else if(!checkPassword(newPassword)){
+        alert('Password has to be at least 8 characters, including both letters and numbers.');
+    }else if(!checkName(newFirstName , newLastName)){
+        alert('First name and last name can not contain numbers' );
+    }else if(!validateForm(newEmail)){
+        alert("Not a valid e-mail address");
+    }else if(ans){       
+        dictUser.set(newUserName , newPassword) ; 
+        alert('Register success');
+        Show_Tab("Home");
+    }else{
+        alert('User name already exists');
+    }   
 }
-
 ////<-- user login -->////
 function Game_Login() {
+    var newUserName = document.getElementById('login_userName').value;
+    var newPassword = document.getElementById('login_password').value;
+    if(newUserName == "" || newPassword == ""){
+        alert('All fields must be filled');
+    }else if(dictUser.has(newUserName)){
+        if(dictUser.get(newUserName) === newPassword)
+        alert('Login success');
+        playerName = newUserName;
+        document.getElementById("lblName").value = playerName;
+        document.getElementById("lblName").value = playerName;
+        Show_Tab("Home");
+    }else if(newUserName == "a" && newPassword == "a"){
+        alert('Login success');
+        playerName = "a";
+        document.getElementById("lblName").value = playerName;
+        document.getElementById("lblNameFinish").value = playerName;
+        Show_Tab("Home");
+    }
+}
 
+function validateForm(email) {
+    var atpos = email.indexOf("@");
+    var dotpos = email.lastIndexOf(".");
+    if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+        return false;
+    }
+    return true;
+}
+
+function checkPassword(password){
+    var length = password.length ;
+    var hasNumber = /\d/;
+    var num = hasNumber.test(password);
+    if(length < 8){
+        return false;
+    }else{
+        if (!/^[a-zA-Z]+$/.test(password) && num) {
+            return true;
+        }
+
+    }
+    return false
+}
+
+function checkName(firstName , lastName){
+
+    var hasNumber = /\d/;
+    if(!hasNumber.test(firstName) && !hasNumber.test(lastName)){
+        return true;
+    }
+
+    return false;
 
 }
 
+////<-- game -->////
 function First_Load() {
-    Show_Tab('Home');
+    dictUser = new Map();
+    const modalBtn = document.getElementById('modal-btn');
+    const closeBtn = document.querySelector('.close');
+    const exitBtn = document.getElementById('exit');
+    
+    modalBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    exitBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', outsideClick);
+    Show_Tab("Login");
 }
 
 
