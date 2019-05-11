@@ -47,7 +47,7 @@ function openModal() {
     var modal = document.getElementById('my-modal');
     modal.style.display = 'block';
   }
-  
+
   // Close
   function closeModal() {
     var modal = document.getElementById('my-modal');
@@ -60,7 +60,7 @@ function openModal() {
       modal.style.display = 'none';
     }
   }
-  
+
 
 
 // Close If Outside Click
@@ -68,7 +68,7 @@ function openModal() {
 
 ////<-- user registraion -->////
 function Game_Register() {
-    
+
     var newDate = document.getElementById('datepicker').value;
     var newUserName = document.getElementById('username').value;
     var newEmail = document.getElementById('email').value;
@@ -86,16 +86,16 @@ function Game_Register() {
         alert('First name and last name can not contain numbers' );
     }else if(!validateForm(newEmail)){
         alert("Not a valid e-mail address");
-    }else if(ans){       
-        dictUser.set(newUserName , newPassword) ; 
+    }else if(ans){
+        dictUser.set(newUserName , newPassword) ;
         alert('Register success');
         playerName = newUserName;
         document.getElementById("lblName").value = playerName;
         document.getElementById("lblNameFinish").value = playerName;
-        Show_Tab("Home");
+        Show_Tab("game_page1");
     }else{
         alert('User name already exists');
-    }   
+    }
 }
 ////<-- user login -->////
 function Game_Login() {
@@ -115,7 +115,7 @@ function Game_Login() {
         playerName = "a";
         document.getElementById("lblName").value = playerName;
         document.getElementById("lblNameFinish").value = playerName;
-        Show_Tab("Home");
+        Show_Tab("game_page1");
     }
 }
 
@@ -160,7 +160,7 @@ function First_Load() {
     const modalBtn = document.getElementById('modal-btn');
     const closeBtn = document.querySelector('.close');
     const exitBtn = document.getElementById('exit');
-    
+
     modalBtn.addEventListener('click', openModal);
     closeBtn.addEventListener('click', closeModal);
     exitBtn.addEventListener('click', closeModal);
@@ -185,7 +185,7 @@ function Show_Tab(id) {
     var Game_tab3 = document.getElementById('game_page3');
     Game_tab3.style.display = "none";
 
-    
+
     //current tab presenteds
     var Current = document.getElementById(id);
     Current.style.display = "block";
